@@ -7,9 +7,14 @@ export function commands() {
 
         title.addEventListener('click', () => {
 
+            const i = card.querySelector('.command-card-title div i');
+
+            i.classList.toggle('fa-rotate-180');
+
             const content = card.querySelector('.command-card-content');
 
             content.classList.toggle('active');
+
 
         });
 

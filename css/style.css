@@ -66,6 +66,7 @@ input {
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 /* Utilities */
@@ -188,7 +189,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     border: 1px solid blue;
     cursor: pointer;
@@ -198,17 +199,17 @@ body {
     font-weight: 400;
 }
 
+.command-card-title i {
+    margin-left: 2rem;
+    transition: all .5s ease;
+}
+
 .command-card-content {
     width: 100%;
     border: 1px solid aqua;
-    /* visibility: hidden; */
-    /* height: 100vh; */
-
-    /* chatgpt */
-
     max-height: 0; /* Agrega esta línea para ocultar el contenido inicialmente */
     overflow: hidden; /* Oculta el contenido que desborda */
-    transition: max-height 0.5s ease-in; /* Agrega una transición a max-height */
+    transition: all .5s ease-in-out;
 }
 
 .command-card-content.active {
