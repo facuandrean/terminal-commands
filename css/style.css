@@ -193,6 +193,7 @@ body {
     align-items: center;
     border: 1px solid blue;
     cursor: pointer;
+    padding: .5rem 0rem;
 }
 
 .command-card-title h3 {
@@ -209,7 +210,7 @@ body {
     border: 1px solid aqua;
     max-height: 0; /* Agrega esta línea para ocultar el contenido inicialmente */
     overflow: hidden; /* Oculta el contenido que desborda */
-    transition: all .5s ease-in-out;
+    transition: all .5s ease;
 }
 
 .command-card-content.active {
@@ -222,10 +223,39 @@ body {
     border: 1px solid red;
 }
 
-.contact_me h2 {
+.contact_me form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contact_me legend {
     font-size: 1.2rem;
     border: 1px solid red;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0 auto 1rem auto;
     text-align: center;
+}
+
+.contact_me input {
+    width: 100%;
+    margin-bottom: .5rem;
+    padding: .5rem;
+}
+
+.contact_me textarea {
+    resize: none;
+    width: 100%;
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+.contact_me input[type="submit"] {
+    width: 30%;
+    margin-bottom: 0;
 }
 
 /* Mediaqueries */
