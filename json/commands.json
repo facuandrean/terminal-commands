@@ -1,0 +1,1088 @@
+{
+    "comandos": {
+        "comando_pwd": {
+            "comando": "pwd",
+            "nombre": "Print Working Directory",
+            "descripcion": "El comando 'pwd' muestra la ruta completa del directorio de trabajo actual en el sistema de archivos.",
+            "banderas": {
+                "-L": {
+                    "descripcion": "Forzar a 'pwd' a mostrar el nombre de ruta lógica (path lógico). Por defecto, muestra la ruta física (path físico).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pwd -L",
+                        "resultado": "Muestra la ruta lógica del directorio de trabajo actual."
+                    }
+                },
+                "-P": {
+                    "descripcion": "Forzar a 'pwd' a mostrar el nombre de ruta física (path físico). Esta es la opción por defecto, y puede usarse para anular la opción '-L' si está configurada.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pwd -P",
+                        "resultado": "Muestra la ruta física del directorio de trabajo actual."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'pwd' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pwd --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'pwd'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando",
+            "ejemplo": "pwd",
+            "resultado": "/home/usuario"
+        },
+        "comando_ls": {
+            "comando": "ls",
+            "nombre": "List",
+            "descripcion": "El comando 'ls' se utiliza para listar archivos y directorios en un directorio específico o en el directorio de trabajo actual.",
+            "banderas": {
+                "-l": {
+                    "descripcion": "Muestra la lista en formato largo, que incluye detalles como permisos, propietario, grupo, tamaño, fecha y nombre de archivo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls -l",
+                        "resultado": "Muestra una lista detallada de archivos y directorios en el directorio actual."
+                    }
+                },
+                "-a": {
+                    "descripcion": "Muestra todos los archivos, incluyendo los ocultos que comienzan con '.'.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls -a",
+                        "resultado": "Muestra todos los archivos y directorios, incluyendo los ocultos, en el directorio actual."
+                    }
+                },
+                "-h": {
+                    "descripcion": "Cuando se usa con la bandera '-l', muestra los tamaños de archivo en un formato legible para humanos (por ejemplo, KB, MB).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls -lh",
+                        "resultado": "Muestra una lista detallada de archivos y directorios con tamaños legibles para humanos en el directorio actual."
+                    }
+                },
+                "-S": {
+                    "descripcion": "Ordena la lista de archivos por tamaño, mostrando los más grandes primero.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls -S",
+                        "resultado": "Muestra una lista de archivos ordenados por tamaño en el directorio actual."
+                    }
+                },
+                "-t": {
+                    "descripcion": "Ordena la lista de archivos por fecha y hora de modificación, mostrando los más recientes primero.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls -t",
+                        "resultado": "Muestra una lista de archivos ordenados por fecha y hora en el directorio actual."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'ls' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ls --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'ls'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando [OPCIONES] [ARCHIVOS/DIRECTORIOS]",
+            "ejemplo": "ls -l -a",
+            "resultado": "La terminal mostrará un listado largo que incluye archivos y directorios ocultos en el directorio actual (si no se pone un directorio o un archivo, se toma el actual)."
+        },
+        "comando_cd": {
+            "comando": "cd",
+            "nombre": "Change Directory",
+            "descripcion": "El comando 'cd' se utiliza para cambiar el directorio de trabajo actual en el sistema de archivos.",
+            "banderas": {
+                "cd /ruta/deseada": "Cambia al directorio especificado por /ruta/deseada.",
+                "cd ..": "Retrocede un directorio (sube un nivel en la jerarquía de directorios).",
+                "cd": "Sin argumentos, vuelve al directorio de inicio del usuario."
+            },
+            "modo_de_uso": "comando [RUTA AL DIRECTORIO]",
+            "ejemplo": "cd /home/usuario/documentos",
+            "resultado": "Cambiarás el directorio de trabajo actual al directorio 'documentos'"
+        },
+        "comando_mkdir": {
+            "comando": "mkdir",
+            "nombre": "Make Directory",
+            "descripcion": "El comando 'mkdir' se utiliza para crear uno o más directorios (carpetas) en el sistema de archivos.",
+            "banderas": {
+                "-p": {
+                    "descripcion": "Crea directorios padres de forma recursiva si no existen. Esta opción permite crear una estructura completa de directorios si es necesario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mkdir -p directorio1/directorio2",
+                        "resultado": "Crea 'directorio1' y 'directorio2' dentro de 'directorio1' si no existen."
+                    }
+                },
+                "--mode": {
+                    "descripcion": "Especifica el modo (permisos) de los directorios creados. Puede ser especificado en formato octal (por ejemplo, 755) o simbólico (por ejemplo, u=rwx,go=rx).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mkdir --mode=755 directorio",
+                        "resultado": "Crea 'directorio' con permisos 755."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'mkdir' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mkdir --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'mkdir'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando [OPCIONES] [NOMBRE DEL DIRECTORIO]",
+            "ejemplo": "mkdir -p documentos/nuevo",
+            "resultado": "Se creará un directorio llamado 'nuevo' dentro del directorio 'documentos'."
+        },
+        "comando_cat": {
+            "comando": "cat",
+            "nombre": "Concatenate and Display",
+            "descripcion": "El comando 'cat' se utiliza para mostrar, concatenar y crear archivos de texto en la terminal de Linux.",
+            "banderas": {
+                "-n": {
+                    "descripcion": "Muestra el número de línea junto con el contenido del archivo. Cada línea es numerada secuencialmente.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cat -n archivo.txt",
+                        "resultado": "Muestra el contenido de 'archivo.txt' con números de línea."
+                    }
+                },
+                "-b": {
+                    "descripcion": "Muestra el número de línea solo en líneas no vacías. Las líneas vacías no se numeran.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cat -b archivo.txt",
+                        "resultado": "Muestra el contenido de 'archivo.txt' con números de línea solo en líneas no vacías."
+                    }
+                },
+                "-E": {
+                    "descripcion": "Muestra un '$' al final de cada línea para indicar el final de la línea.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cat -E archivo.txt",
+                        "resultado": "Muestra el contenido de 'archivo.txt' con '$' al final de cada línea."
+                    }
+                },
+                "-T": {
+                    "descripcion": "Muestra caracteres de tabulación (^I) y caracteres de nueva línea (^J) en lugar de tabs y retornos de carro.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cat -T archivo.txt",
+                        "resultado": "Muestra el contenido de 'archivo.txt' con representaciones especiales para caracteres de tabulación y nueva línea."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'cat' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cat --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'cat'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando [OPCIONES] [ARCHIVO]",
+            "ejemplo": "cat -n archivo.txt",
+            "resultado": "La terminal mostrará el contenido de 'archivo.txt' con números de línea."
+        },
+        "comando_rm": {
+            "comando": "rm",
+            "nombre": "Remove",
+            "descripcion": "El comando 'rm' se utiliza para eliminar archivos y directorios en el sistema de archivos de Linux.",
+            "banderas": {
+                "-r": {
+                    "descripcion": "Permite eliminar directorios y su contenido de forma recursiva. Útil para eliminar directorios y su contenido de manera completa.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rm -r directorio",
+                        "resultado": "Elimina el directorio 'directorio' y todo su contenido de forma recursiva."
+                    }
+                },
+                "-f": {
+                    "descripcion": "Fuerza la eliminación sin preguntar para confirmación. Es útil cuando se desea eliminar archivos o directorios sin ser preguntado por cada uno de ellos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rm -f archivo",
+                        "resultado": "Elimina el archivo 'archivo' sin preguntar para confirmación."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'rm' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rm --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'rm'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando [OPCIONES] [ARCHIVOS/DIRECTORIOS]",
+            "ejemplo": "rm -r carpeta",
+            "resultado": "Se eliminará el directorio 'carpeta' y su contenido de forma recursiva."
+        },
+        "comando_rmdir": {
+            "comando": "rmdir",
+            "nombre": "Remove Directory",
+            "descripcion": "El comando 'rmdir' se utiliza para eliminar directorios vacíos en el sistema de archivos de Linux.",
+            "banderas": {
+                "-p": {
+                    "descripcion": "Permite eliminar directorios padres de forma recursiva. Si se especifica esta opción, 'rmdir' eliminará directorios vacíos y sus directorios padres vacíos si corresponde.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rmdir -p directorio1/directorio2",
+                        "resultado": "Elimina 'directorio2' y luego verifica si 'directorio1' está vacío y lo elimina también si es necesario."
+                    }
+                },
+                "--ignore-fail-on-non-empty": {
+                    "descripcion": "No muestra un mensaje de error si un directorio no está vacío. Por defecto, 'rmdir' muestra un mensaje de error si intentas eliminar un directorio que no está vacío.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rmdir --ignore-fail-on-non-empty directorio",
+                        "resultado": "Intenta eliminar 'directorio', pero no muestra un mensaje de error si no está vacío."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'rmdir' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "rmdir --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'rmdir'."
+                    }
+                }
+            },
+            "modo_de_uso": "comando [OPCIONES] [DIRECTORIO]",
+            "ejemplo": "rmdir -p directorio1/directorio2",
+            "resultado": "Eliminará 'directorio2' y luego verificará si 'directorio1' está vacío y lo eliminará también si es necesario."
+        },
+        "comando_cp": {
+            "comando": "cp",
+            "nombre": "Copy",
+            "descripcion": "El comando 'cp' se utiliza para copiar archivos y directorios en el sistema de archivos de Linux.",
+            "banderas": {
+                "-i": {
+                    "descripcion": "Solicita confirmación antes de sobrescribir archivos existentes. Si intentas copiar un archivo que ya existe en el destino, 'cp' te pedirá confirmación antes de sobrescribirlo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cp -i archivo.txt directorio/",
+                        "resultado": "Copia 'archivo.txt' al directorio 'directorio/', pero pide confirmación si 'archivo.txt' ya existe en el destino."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Permite copiar directorios y su contenido de forma recursiva. Útil para copiar directorios completos y su contenido.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cp -r directorio_origen/ directorio_destino/",
+                        "resultado": "Copia 'directorio_origen/' y su contenido al 'directorio_destino/'."
+                    }
+                },
+                "-u": {
+                    "descripcion": "Copia solo si el archivo de origen es más nuevo que el archivo de destino o si el archivo de destino no existe. Esta opción permite actualizar archivos de destino solo si es necesario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cp -u archivo.txt directorio/",
+                        "resultado": "Copia 'archivo.txt' al 'directorio/' solo si 'archivo.txt' es más nuevo que el archivo de destino o si el archivo de destino no existe."
+                    }
+                },
+                "--backup": {
+                    "descripcion": "Crea copias de seguridad de los archivos de destino antes de sobrescribirlos. Las copias de seguridad se crean con un sufijo '~'.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cp --backup archivo.txt directorio/",
+                        "resultado": "Copia 'archivo.txt' al 'directorio/' y crea una copia de seguridad de 'archivo.txt' en el mismo directorio con el sufijo '~' si ya existe en el destino."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'cp' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cp --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'cp'."
+                    }
+                }
+            },
+            "modo_de_uso": "cp [OPCIONES] [ORIGEN] [DESTINO]",
+            "ejemplo": "cp -r directorio_origen/ directorio_destino/",
+            "resultado": "Copia el contenido de 'directorio_origen/' al 'directorio_destino/' de forma recursiva."
+        },
+        "comando_mv": {
+            "comando": "mv",
+            "nombre": "Move",
+            "descripcion": "El comando 'mv' se utiliza para mover o renombrar archivos y directorios en el sistema de archivos de Linux.",
+            "banderas": {
+                "-i": {
+                    "descripcion": "Solicita confirmación antes de sobrescribir archivos existentes en el destino. Si intentas mover un archivo a un destino donde ya existe un archivo con el mismo nombre, 'mv' te pedirá confirmación antes de sobrescribirlo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mv -i archivo.txt directorio/",
+                        "resultado": "Mueve 'archivo.txt' al 'directorio/' pero pide confirmación si ya existe un archivo con el mismo nombre en el destino."
+                    }
+                },
+                "-b": {
+                    "descripcion": "Crea una copia de seguridad de los archivos de destino antes de sobrescribirlos. Las copias de seguridad se crean con un sufijo '~'.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mv -b archivo.txt directorio/",
+                        "resultado": "Mueve 'archivo.txt' al 'directorio/' y crea una copia de seguridad de 'archivo.txt' en el mismo directorio con el sufijo '~' si ya existe en el destino."
+                    }
+                },
+                "--backup=sufijo": {
+                    "descripcion": "Crea una copia de seguridad de los archivos de destino antes de sobrescribirlos, pero permite especificar un sufijo personalizado para las copias de seguridad.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mv --backup=.bak archivo.txt directorio/",
+                        "resultado": "Mueve 'archivo.txt' al 'directorio/' y crea una copia de seguridad de 'archivo.txt' en el mismo directorio con el sufijo '.bak' si ya existe en el destino."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'mv' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "mv --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'mv'."
+                    }
+                }
+            },
+            "modo_de_uso": "mv [OPCIONES] [ORIGEN] [DESTINO]",
+            "ejemplo": "mv archivo.txt nuevo_nombre.txt",
+            "resultado": "Renombra 'archivo.txt' a 'nuevo_nombre.txt' en el mismo directorio."
+        },
+        "comando_head": {
+            "comando": "head",
+            "nombre": "Head",
+            "descripcion": "El comando 'head' se utiliza para mostrar las primeras líneas de un archivo de texto en la terminal de Linux.",
+            "banderas": {
+                "-n NUM": {
+                    "descripcion": "Muestra las primeras NUM líneas del archivo. Puedes especificar el número de líneas que deseas mostrar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "head -n 5 archivo.txt",
+                        "resultado": "Muestra las primeras 5 líneas del archivo 'archivo.txt'."
+                    }
+                },
+                "-c NUM": {
+                    "descripcion": "Muestra los primeros NUM bytes del archivo en lugar de líneas. Puedes especificar el número de bytes que deseas mostrar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "head -c 100 archivo.txt",
+                        "resultado": "Muestra los primeros 100 bytes del archivo 'archivo.txt'."
+                    }
+                },
+                "--lines=NUM": {
+                    "descripcion": "Muestra las primeras NUM líneas del archivo. Esta es una forma alternativa de especificar el número de líneas.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "head --lines=3 archivo.txt",
+                        "resultado": "Muestra las primeras 3 líneas del archivo 'archivo.txt'."
+                    }
+                },
+                "--bytes=NUM": {
+                    "descripcion": "Muestra los primeros NUM bytes del archivo en lugar de líneas. Esta es una forma alternativa de especificar el número de bytes.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "head --bytes=50 archivo.txt",
+                        "resultado": "Muestra los primeros 50 bytes del archivo 'archivo.txt'."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'head' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "head --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'head'."
+                    }
+                }
+            },
+            "modo_de_uso": "head [OPCIONES] [ARCHIVO]",
+            "ejemplo": "head -n 10 archivo.txt",
+            "resultado": "Muestra las primeras 10 líneas del archivo 'archivo.txt'."
+        },
+        "comando_tail": {
+            "comando": "tail",
+            "nombre": "Tail",
+            "descripcion": "El comando 'tail' se utiliza para mostrar las últimas líneas de un archivo de texto en la terminal de Linux.",
+            "banderas": {
+                "-n NUM": {
+                    "descripcion": "Muestra las últimas NUM líneas del archivo. Puedes especificar el número de líneas que deseas mostrar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail -n 5 archivo.txt",
+                        "resultado": "Muestra las últimas 5 líneas del archivo 'archivo.txt'."
+                    }
+                },
+                "-c NUM": {
+                    "descripcion": "Muestra los últimos NUM bytes del archivo en lugar de líneas. Puedes especificar el número de bytes que deseas mostrar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail -c 100 archivo.txt",
+                        "resultado": "Muestra los últimos 100 bytes del archivo 'archivo.txt'."
+                    }
+                },
+                "--lines=NUM": {
+                    "descripcion": "Muestra las últimas NUM líneas del archivo. Esta es una forma alternativa de especificar el número de líneas.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail --lines=3 archivo.txt",
+                        "resultado": "Muestra las últimas 3 líneas del archivo 'archivo.txt'."
+                    }
+                },
+                "--bytes=NUM": {
+                    "descripcion": "Muestra los últimos NUM bytes del archivo en lugar de líneas. Esta es una forma alternativa de especificar el número de bytes.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail --bytes=50 archivo.txt",
+                        "resultado": "Muestra los últimos 50 bytes del archivo 'archivo.txt'."
+                    }
+                },
+                "-f": {
+                    "descripcion": "Muestra las últimas líneas del archivo y luego continúa mostrando nuevas líneas a medida que se agregan al archivo en tiempo real. Útil para monitorear registros de archivos en constante actualización.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail -f archivo.log",
+                        "resultado": "Muestra las últimas líneas de 'archivo.log' y sigue mostrando nuevas líneas a medida que se agregan al archivo en tiempo real."
+                    }
+                },
+                "+NUM": {
+                    "descripcion": "Muestra líneas a partir de la línea número NUM en lugar de las últimas líneas. Puedes especificar el número de línea desde donde deseas comenzar a mostrar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail +5 archivo.txt",
+                        "resultado": "Muestra líneas del archivo 'archivo.txt' a partir de la línea número 5."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'tail' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tail --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'tail'."
+                    }
+                }
+            },
+            "modo_de_uso": "tail [OPCIONES] [ARCHIVO]",
+            "ejemplo": "tail -n 10 archivo.log",
+            "resultado": "Muestra las últimas 10 líneas del archivo 'archivo.log'."
+        },
+        "comando_file": {
+            "comando": "file",
+            "nombre": "File",
+            "descripcion": "El comando 'file' se utiliza para determinar el tipo de archivo de un archivo o conjunto de archivos en Linux. Proporciona información sobre si un archivo es un archivo de texto, binario, directorio, enlace simbólico, etc.",
+            "banderas": {
+                "-b": {
+                    "descripcion": "Muestra solo el nombre del archivo sin otra información. Útil para obtener solo el tipo de archivo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "file -b archivo.txt",
+                        "resultado": "Muestra solo el tipo de archivo de 'archivo.txt'."
+                    }
+                },
+                "-i": {
+                    "descripcion": "Muestra la información MIME (Multipurpose Internet Mail Extensions) del archivo en lugar del tipo de archivo tradicional.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "file -i imagen.png",
+                        "resultado": "Muestra la información MIME de 'imagen.png'."
+                    }
+                },
+                "-z": {
+                    "descripcion": "Evita la búsqueda recursiva en los directorios si se proporciona un directorio como argumento.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "file -z carpeta/",
+                        "resultado": "Muestra la información de la carpeta 'carpeta/' sin buscar en sus subdirectorios."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'file' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "file --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'file'."
+                    }
+                }
+            },
+            "modo_de_uso": "file [OPCIONES] [ARCHIVO]",
+            "ejemplo": "file archivo.png",
+            "resultado": "Muestra el tipo de archivo de 'archivo.png'."
+        },
+        "comando_which": {
+            "comando": "which",
+            "nombre": "Which",
+            "descripcion": "El comando 'which' se utiliza para mostrar la ubicación del ejecutable de un comando en el sistema. Es útil para determinar la ruta completa de un programa o comando en el sistema de archivos.",
+            "banderas": {
+                "-a": {
+                    "descripcion": "Muestra todas las ubicaciones de un comando si existen múltiples instancias en el sistema.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "which -a python",
+                        "resultado": "Muestra todas las ubicaciones de 'python' en el sistema si hay múltiples instancias."
+                    }
+                },
+                "--all": {
+                    "descripcion": "Muestra todas las ubicaciones de un comando si existen múltiples instancias en el sistema. Es una forma alternativa de '-a'.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "which --all python",
+                        "resultado": "Muestra todas las ubicaciones de 'python' en el sistema si hay múltiples instancias."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'which' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "which --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'which'."
+                    }
+                }
+            },
+            "modo_de_uso": "which [OPCIONES] [COMANDO]",
+            "ejemplo": "which python",
+            "resultado": "Muestra la ubicación del ejecutable de 'python' en el sistema."
+        },
+        "comando_wc": {
+            "comando": "wc",
+            "nombre": "Word Count",
+            "descripcion": "El comando 'wc' se utiliza para contar palabras, líneas y bytes en archivos de texto. Es útil para obtener estadísticas sobre el contenido de un archivo de texto.",
+            "banderas": {
+                "-l": {
+                    "descripcion": "Muestra el número de líneas en el archivo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "wc -l archivo.txt",
+                        "resultado": "Muestra el número de líneas en 'archivo.txt'."
+                    }
+                },
+                "-w": {
+                    "descripcion": "Muestra el número de palabras en el archivo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "wc -w archivo.txt",
+                        "resultado": "Muestra el número de palabras en 'archivo.txt'."
+                    }
+                },
+                "-c": {
+                    "descripcion": "Muestra el número de bytes en el archivo.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "wc -c archivo.txt",
+                        "resultado": "Muestra el número de bytes en 'archivo.txt'."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'wc' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "wc --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'wc'."
+                    }
+                }
+            },
+            "modo_de_uso": "wc [OPCIONES] [ARCHIVO]",
+            "ejemplo": "wc -l archivo.txt",
+            "resultado": "Muestra el número de líneas en 'archivo.txt'."
+        },
+        "comando_cmp": {
+            "comando": "cmp",
+            "nombre": "Compare",
+            "descripcion": "El comando 'cmp' se utiliza para comparar dos archivos byte por byte y mostrar las diferencias entre ellos. Es útil para verificar si dos archivos son idénticos o para encontrar diferencias específicas.",
+            "banderas": {
+                "-l": {
+                    "descripcion": "Muestra las diferencias byte por byte junto con sus ubicaciones decimales en los archivos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cmp -l archivo1.txt archivo2.txt",
+                        "resultado": "Muestra las diferencias byte por byte entre 'archivo1.txt' y 'archivo2.txt' junto con sus ubicaciones decimales."
+                    }
+                },
+                "-s": {
+                    "descripcion": "Suprime la salida normal y muestra solo un mensaje si los archivos son idénticos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cmp -s archivo1.txt archivo2.txt",
+                        "resultado": "Muestra un mensaje solo si 'archivo1.txt' y 'archivo2.txt' son idénticos, de lo contrario, no muestra nada."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'cmp' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cmp --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'cmp'."
+                    }
+                }
+            },
+            "modo_de_uso": "cmp [OPCIONES] ARCHIVO1 ARCHIVO2",
+            "ejemplo": "cmp -l archivo1.txt archivo2.txt",
+            "resultado": "Muestra las diferencias byte por byte entre 'archivo1.txt' y 'archivo2.txt' junto con sus ubicaciones decimales."
+        },
+        "comando_diff": {
+            "comando": "diff",
+            "nombre": "Differences",
+            "descripcion": "El comando 'diff' se utiliza para comparar y mostrar las diferencias entre dos archivos de texto o directorios. Es útil para encontrar cambios específicos en archivos y directorios.",
+            "banderas": {
+                "-u": {
+                    "descripcion": "Muestra las diferencias en formato unificado, que es comúnmente utilizado para mostrar cambios en archivos de código fuente.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "diff -u archivo1.txt archivo2.txt",
+                        "resultado": "Muestra las diferencias entre 'archivo1.txt' y 'archivo2.txt' en formato unificado."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Realiza una comparación recursiva de directorios y muestra las diferencias de archivos en los directorios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "diff -r directorio1 directorio2",
+                        "resultado": "Realiza una comparación recursiva entre 'directorio1' y 'directorio2' y muestra las diferencias de archivos."
+                    }
+                },
+                "-q": {
+                    "descripcion": "Muestra un mensaje si los archivos son idénticos y no muestra las diferencias.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "diff -q archivo1.txt archivo2.txt",
+                        "resultado": "Muestra un mensaje solo si 'archivo1.txt' y 'archivo2.txt' son idénticos, de lo contrario, no muestra nada."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre el comando 'diff' junto con una lista de las opciones disponibles.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "diff --help",
+                        "resultado": "Muestra información de ayuda sobre el comando 'diff'."
+                    }
+                }
+            },
+            "modo_de_uso": "diff [OPCIONES] ARCHIVO1 ARCHIVO2",
+            "ejemplo": "diff -u archivo1.txt archivo2.txt",
+            "resultado": "Muestra las diferencias entre 'archivo1.txt' y 'archivo2.txt' en formato unificado."
+        },
+        "comando_ln": {
+            "comando": "ln",
+            "nombre": "ln",
+            "descripcion": "El comando ln se utiliza para crear enlaces (enlaces duros y enlaces simbólicos) entre archivos o directorios en Linux.",
+            "banderas": {
+                "-s": {
+                    "descripcion": "Crear un enlace simbólico en lugar de un enlace duro.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ln -s archivo_original enlace_simbolico",
+                        "resultado": "Crea un enlace simbólico llamado 'enlace_simbolico' que apunta al 'archivo_original'."
+                    }
+                },
+                "-f": {
+                    "descripcion": "Forzar la creación del enlace incluso si el archivo de destino ya existe.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ln -f archivo_original enlace_existente",
+                        "resultado": "Sobrescribe el 'enlace_existente' si ya existe."
+                    }
+                },
+                "-i": {
+                    "descripcion": "Solicita confirmación antes de sobrescribir un enlace existente con la bandera -f.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ln -if archivo_original enlace_existente",
+                        "resultado": "Pregunta si deseas sobrescribir 'enlace_existente' si ya existe."
+                    }
+                },
+                "-v": {
+                    "descripcion": "Modo verbose (verboso), muestra información detallada sobre las acciones realizadas.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ln -v archivo_original enlace_nuevo",
+                        "resultado": "Muestra un mensaje detallado sobre la creación del enlace 'enlace_nuevo'."
+                    }
+                }
+            },
+            "modo_de_uso": "ln [banderas] archivo_original enlace_destino",
+            "ejemplo": "ln -s archivo.txt enlace_simbolico",
+            "resultado": "Crea un enlace simbólico llamado 'enlace_simbolico' que apunta al archivo 'archivo.txt'."
+        },
+        "comando_grep": {
+            "comando": "grep",
+            "nombre": "grep",
+            "descripcion": "El comando 'grep' se utiliza para buscar patrones de texto en archivos o en la salida de otros comandos en Linux.",
+            "banderas": {
+                "-i": {
+                    "descripcion": "Realiza una búsqueda insensible a mayúsculas y minúsculas.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "grep -i 'patrón' archivo.txt",
+                        "resultado": "Busca 'patrón' en 'archivo.txt' sin importar mayúsculas y minúsculas."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Realiza una búsqueda recursiva en directorios y subdirectorios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "grep -r 'patrón' /directorio",
+                        "resultado": "Busca 'patrón' en todos los archivos del directorio '/directorio' de forma recursiva."
+                    }
+                },
+                "-v": {
+                    "descripcion": "Muestra líneas que NO coinciden con el patrón especificado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "grep -v 'patrón' archivo.txt",
+                        "resultado": "Muestra todas las líneas en 'archivo.txt' que NO contienen 'patrón'."
+                    }
+                },
+                "-l": {
+                    "descripcion": "Muestra solo los nombres de los archivos que contienen el patrón (útil con -r).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "grep -rl 'patrón' /directorio",
+                        "resultado": "Muestra los nombres de los archivos en '/directorio' que contienen 'patrón'."
+                    }
+                }
+            },
+            "modo_de_uso": "grep [banderas] 'patrón' archivo(s)",
+            "ejemplo": "grep -i 'error' archivo.log",
+            "resultado": "Busca la palabra 'error' de forma insensible a mayúsculas y minúsculas en el archivo 'archivo.log'."
+        },
+        "comando_cut": {
+            "comando": "cut",
+            "nombre": "cut",
+            "descripcion": "El comando cut se utiliza para cortar (extraer) secciones de líneas de texto de archivos o de la entrada estándar y mostrar el resultado en la salida estándar.",
+            "banderas": {
+                "-c": {
+                    "descripcion": "Especifica los caracteres a cortar por posición.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cut -c 1-5 archivo.txt",
+                        "resultado": "Corta los caracteres de la posición 1 a 5 de cada línea en 'archivo.txt' y muestra el resultado."
+                    }
+                },
+                "-d": {
+                    "descripcion": "Especifica un delimitador personalizado en lugar del delimitador predeterminado (tabulación).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cut -d ',' -f 2 archivo.csv",
+                        "resultado": "Corta el segundo campo de cada línea en 'archivo.csv' utilizando la coma como delimitador."
+                    }
+                },
+                "-f": {
+                    "descripcion": "Especifica los campos a cortar cuando se utiliza un delimitador personalizado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cut -d ',' -f 1,3 archivo.csv",
+                        "resultado": "Corta el primer y tercer campo de cada línea en 'archivo.csv' utilizando la coma como delimitador."
+                    }
+                },
+                "--complement": {
+                    "descripcion": "Invierte la selección, es decir, corta todo excepto lo especificado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cut -c 2- --complement archivo.txt",
+                        "resultado": "Corta todos los caracteres excepto los de la posición 2 en adelante de cada línea en 'archivo.txt'."
+                    }
+                }
+            },
+            "modo_de_uso": "cut [OPCIONES] [ARCHIVO]",
+            "ejemplo": "cut -c 1-3 archivo.txt",
+            "resultado": "Corta los caracteres de la posición 1 a 3 de cada línea en 'archivo.txt' y muestra el resultado en la salida estándar."
+        },
+        "comando_tr": {
+            "comando": "tr",
+            "nombre": "tr",
+            "descripcion": "El comando tr se utiliza para realizar transformaciones de caracteres en un flujo de texto o archivos. Puede ser útil para cambiar, eliminar o reemplazar caracteres en un archivo de texto o entrada estándar.",
+            "banderas": {
+                "-d": {
+                    "descripcion": "Elimina caracteres especificados del flujo de texto.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tr -d 'e' < archivo.txt",
+                        "resultado": "Elimina todas las letras 'e' del archivo de entrada 'archivo.txt' y muestra el resultado en la salida estándar."
+                    }
+                },
+                "-s": {
+                    "descripcion": "Sustituye secuencias repetidas de caracteres especificados por un solo carácter.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "echo 'Hola     mundo' | tr -s ' '",
+                        "resultado": "Sustituye múltiples espacios en blanco por un solo espacio en la cadena 'Hola     mundo'."
+                    }
+                },
+                "-c": {
+                    "descripcion": "Complementa la lista de caracteres especificados. Transforma todos los caracteres que no están en la lista.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "echo 'abc123' | tr -c '0-9' '*'",
+                        "resultado": "Sustituye todos los caracteres que no son dígitos (0-9) por un asterisco en la cadena 'abc123'."
+                    }
+                },
+                "-t": {
+                    "descripcion": "Elimina todos los caracteres especificados excepto aquellos en la lista.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "echo 'abc123' | tr -t -d '0-9'",
+                        "resultado": "Elimina todos los caracteres que no son dígitos (0-9) en la cadena 'abc123'."
+                    }
+                }
+            },
+            "modo_de_uso": "tr [OPCIONES] SET1 [SET2]",
+            "ejemplo": "echo 'Hello, World!' | tr 'a-z' 'A-Z'",
+            "resultado": "Transforma la cadena 'Hello, World!' cambiando minúsculas a mayúsculas y muestra el resultado."
+        },
+        "comando_sort": {
+            "comando": "sort",
+            "nombre": "sort",
+            "descripcion": "El comando sort se utiliza para ordenar líneas de texto en archivos o flujos de entrada. Puede ordenar alfabéticamente, numéricamente y realizar otras operaciones de clasificación personalizada.",
+            "banderas": {
+                "-f": {
+                    "descripcion": "Ignora las diferencias entre mayúsculas y minúsculas al ordenar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "sort -f archivo.txt",
+                        "resultado": "Ordena el contenido del archivo 'archivo.txt' ignorando las diferencias entre mayúsculas y minúsculas."
+                    }
+                },
+                "-n": {
+                    "descripcion": "Ordena numéricamente en lugar de alfabéticamente.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "sort -n numeros.txt",
+                        "resultado": "Ordena el contenido del archivo 'numeros.txt' numéricamente en lugar de alfabéticamente."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Ordena en orden inverso (de manera descendente).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "sort -r archivo.txt",
+                        "resultado": "Ordena el contenido del archivo 'archivo.txt' en orden inverso (de manera descendente)."
+                    }
+                },
+                "-t": {
+                    "descripcion": "Especifica un delimitador personalizado para las columnas en lugar del espacio en blanco predeterminado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "sort -t , -k 2,2 archivo.csv",
+                        "resultado": "Ordena el archivo CSV 'archivo.csv' utilizando una coma (',') como delimitador y basándose en la segunda columna."
+                    }
+                },
+                "-k": {
+                    "descripcion": "Especifica el campo y el carácter de delimitación para la clasificación personalizada.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "sort -t : -k 3,3n /etc/passwd",
+                        "resultado": "Ordena el archivo '/etc/passwd' basándose en el tercer campo numérico, utilizando dos puntos (':') como delimitador."
+                    }
+                }
+            },
+            "modo_de_uso": "sort [OPCIONES] [ARCHIVO]",
+            "ejemplo": "sort -n archivo.txt",
+            "resultado": "Ordena el contenido del archivo 'archivo.txt' numéricamente."
+        },
+        "comando_tar": {
+            "comando": "tar",
+            "nombre": "tar",
+            "descripcion": "El comando 'tar' se utiliza para crear, gestionar y extraer archivos comprimidos en Linux. Puede comprimir múltiples archivos y directorios en un archivo único, lo que facilita la transferencia y copia de seguridad de datos.",
+            "banderas": {
+                "-c": {
+                    "descripcion": "Crea un archivo tar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tar -cvf archivo.tar directorio/",
+                        "resultado": "Crea un archivo 'archivo.tar' que contiene el contenido del directorio 'directorio/'."
+                    }
+                },
+                "-x": {
+                    "descripcion": "Extrae archivos de un archivo tar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tar -xvf archivo.tar",
+                        "resultado": "Extrae los archivos del archivo 'archivo.tar' en el directorio actual."
+                    }
+                },
+                "-z": {
+                    "descripcion": "Utiliza compresión gzip para comprimir o descomprimir el archivo tar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tar -czvf archivo.tar.gz directorio/",
+                        "resultado": "Crea un archivo tar comprimido 'archivo.tar.gz' a partir del contenido de 'directorio/'."
+                    }
+                },
+                "-f": {
+                    "descripcion": "Especifica el nombre del archivo tar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tar -cvf archivo.tar directorio/",
+                        "resultado": "Crea un archivo 'archivo.tar' a partir del contenido del directorio 'directorio/'."
+                    }
+                },
+                "-t": {
+                    "descripcion": "Muestra el contenido de un archivo tar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "tar -tvf archivo.tar",
+                        "resultado": "Muestra una lista de los archivos contenidos en 'archivo.tar'."
+                    }
+                }
+            },
+            "modo_de_uso": "tar [OPCIONES] [ARCHIVO_TAR] [ARCHIVOS/DIRECTORIOS]",
+            "ejemplo": "tar -czvf archivo.tar.gz directorio/",
+            "resultado": "Crea un archivo tar comprimido llamado 'archivo.tar.gz' a partir del contenido del directorio 'directorio/'."
+        },
+        "comando_gzip": {
+            "comando": "gzip",
+            "nombre": "gzip",
+            "descripcion": "El comando 'gzip' se utiliza para comprimir archivos en Linux. Es una herramienta eficaz para reducir el tamaño de los archivos y ahorrar espacio en disco.",
+            "banderas": {
+                "-c": {
+                    "descripcion": "Escribe la salida comprimida en la pantalla en lugar de modificar el archivo original.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gzip -c archivo.txt > archivo.txt.gz",
+                        "resultado": "Comprime 'archivo.txt' y escribe la salida comprimida en 'archivo.txt.gz'."
+                    }
+                },
+                "-d": {
+                    "descripcion": "Descomprime archivos comprimidos con gzip.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gzip -d archivo.txt.gz",
+                        "resultado": "Descomprime 'archivo.txt.gz' en 'archivo.txt'."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Recursivamente comprime archivos en directorios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gzip -r directorio/",
+                        "resultado": "Comprime todos los archivos en el directorio 'directorio/' de forma recursiva."
+                    }
+                },
+                "-t": {
+                    "descripcion": "Comprueba la integridad de un archivo comprimido.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gzip -t archivo.txt.gz",
+                        "resultado": "Comprueba si 'archivo.txt.gz' es un archivo gzip válido."
+                    }
+                }
+            },
+            "modo_de_uso": "gzip [OPCIONES] [ARCHIVOS]",
+            "ejemplo": "gzip -c archivo.txt > archivo.txt.gz",
+            "resultado": "Comprime 'archivo.txt' y escribe la salida comprimida en 'archivo.txt.gz'."
+        },
+        "comando_gunzip": {
+            "comando": "gunzip",
+            "nombre": "gunzip",
+            "descripcion": "El comando 'gunzip' se utiliza para descomprimir archivos comprimidos en formato gzip en Linux.",
+            "banderas": {
+                "-c": {
+                    "descripcion": "Escribe la salida descomprimida en la pantalla en lugar de modificar el archivo original.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gunzip -c archivo.txt.gz",
+                        "resultado": "Descomprime 'archivo.txt.gz' y muestra la salida descomprimida en la pantalla."
+                    }
+                },
+                "-d": {
+                    "descripcion": "Descomprime archivos en formato gzip.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gunzip -d archivo.txt.gz",
+                        "resultado": "Descomprime 'archivo.txt.gz' en 'archivo.txt'."
+                    }
+                },
+                "-k": {
+                    "descripcion": "Mantiene el archivo comprimido original después de la descompresión (no lo borra por defecto).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gunzip -k archivo.txt.gz",
+                        "resultado": "Descomprime 'archivo.txt.gz' en 'archivo.txt' y mantiene 'archivo.txt.gz' intacto."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Recursivamente descomprime archivos en directorios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "gunzip -r directorio/",
+                        "resultado": "Descomprime todos los archivos en el directorio 'directorio/' de forma recursiva."
+                    }
+                }
+            },
+            "modo_de_uso": "gunzip [OPCIONES] [ARCHIVOS]",
+            "ejemplo": "gunzip -d archivo.txt.gz",
+            "resultado": "Descomprime 'archivo.txt.gz' en 'archivo.txt'."
+        },
+        "comando_find": {
+            "comando": "find",
+            "nombre": "find",
+            "descripcion": "El comando 'find' se utiliza para buscar archivos y directorios en un sistema de archivos en función de varios criterios.",
+            "banderas": {
+                "-name": {
+                    "descripcion": "Busca archivos y directorios por nombre.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "find /ruta -name archivo.txt",
+                        "resultado": "Busca 'archivo.txt' en '/ruta' y muestra los resultados."
+                    }
+                },
+                "-type": {
+                    "descripcion": "Especifica el tipo de archivo a buscar (fichero regular, directorio, enlace simbólico, etc.).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "find /ruta -type d",
+                        "resultado": "Busca todos los directorios en '/ruta'."
+                    }
+                },
+                "-size": {
+                    "descripcion": "Busca archivos por tamaño (en bloques). Puedes usar + para archivos más grandes que el tamaño especificado o - para archivos más pequeños.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "find /ruta -size +10M",
+                        "resultado": "Busca archivos mayores de 10 megabytes en '/ruta'."
+                    }
+                },
+                "-exec": {
+                    "descripcion": "Ejecuta un comando en los archivos encontrados.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "find /ruta -name '*.txt' -exec cat {} \\;",
+                        "resultado": "Busca archivos con extensión '.txt' en '/ruta' y muestra su contenido utilizando 'cat'."
+                    }
+                },
+                "-delete": {
+                    "descripcion": "Elimina los archivos y directorios encontrados. Ten cuidado al usar esta opción, ya que los archivos se eliminarán sin posibilidad de recuperación.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "find /ruta -name 'archivo.txt' -delete",
+                        "resultado": "Busca y elimina todos los archivos llamados 'archivo.txt' en '/ruta'."
+                    }
+                }
+            },
+            "modo_de_uso": "find [DIRECTORIO] [OPCIONES] [PATRÓN]",
+            "ejemplo": "find /ruta -name archivo.txt",
+            "resultado": "Busca 'archivo.txt' en '/ruta' y muestra los resultados."
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+    }
+}

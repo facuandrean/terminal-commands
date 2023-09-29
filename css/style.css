@@ -126,15 +126,15 @@ body {
 
 .header-contact_me {
     width: 35%;
-    border: 1px solid black;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: .2rem;
-    border-radius: 1rem;
+    justify-content: flex-end;
 }
 
 .header-contact_me a {
+    border: 1px solid black;
+    padding: .2rem .5rem;
+    border-radius: 1rem;
     height: 100%;
     font-size: 1rem;
     font-weight: 500;
@@ -197,7 +197,7 @@ body {
 }
 
 .command-card-title h3 {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .command-card-title i {
@@ -207,7 +207,7 @@ body {
 
 .command-card-content {
     width: 100%;
-    border: 1px solid aqua;
+    visibility: hidden;
     max-height: 0; /* Agrega esta línea para ocultar el contenido inicialmente */
     overflow: hidden; /* Oculta el contenido que desborda */
     transition: all .5s ease;
@@ -215,6 +215,18 @@ body {
 
 .command-card-content.active {
     max-height: 100vh; /* Ajusta la altura máxima para mostrar el contenido */
+    padding: .5rem;
+    visibility: visible;
+}
+
+.command-card-content h4 {
+    margin: 1rem 0rem;
+    font-size: 1.5rem;
+}
+
+.command-card-content p {
+    font-size: 1rem;
+    margin: 1rem 0rem;
 }
 
 .contact_me {
@@ -260,8 +272,17 @@ body {
 
 /* Mediaqueries */
 
+@media screen and (min-width:768px) {
+    .contact_me input {
+        width: 80%;
+    }
+
+    .contact_me textarea {
+        width: 80%;
+    }
+}
+
 @media screen and (min-width:1024px) {
         
-
 }
 
