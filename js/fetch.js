@@ -3,7 +3,7 @@ export function fetchData() {
     const $fetch = d.querySelector('.main');
     const $fragment = d.createDocumentFragment();
     
-    fetch("../json/commands.json")
+    fetch("http://facuandrean.github.io/json/commands.json")
     .then((res) => (res.ok ? res.json() : Promise.reject(res)))
     .then((json) => {
 
