@@ -97,9 +97,30 @@
             "nombre": "Change Directory",
             "descripcion": "El comando 'cd' se utiliza para cambiar el directorio de trabajo actual en el sistema de archivos.",
             "banderas": {
-                "cd /ruta/deseada": "Cambia al directorio especificado por /ruta/deseada.",
-                "cd ..": "Retrocede un directorio (sube un nivel en la jerarquía de directorios).",
-                "cd": "Sin argumentos, vuelve al directorio de inicio del usuario."
+		        "cd /ruta/deseada": {
+			        "descripcion": "Cambia al directorio especificado por /ruta/deseada.",
+			        "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cd /home",
+                        "resultado": "Se moverá la ubicación a /home"
+                    }
+		        },
+                "cd ..": {
+                    "descripcion": "Retrocede un directorio (sube un nivel en la jerarquía de directorios).",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cd ..",
+                        "resultado": "Se moverá la ubicación padre de la ubicación actual. Subirá un nivel."
+                    }
+                },
+                "cd": {
+                    "descripcion": "Sin argumentos, vuelve al directorio de inicio del usuario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "cd",
+                        "resultado": "Vuelve al directorio de inicio del usuario."
+                    }
+                }
             },
             "modo_de_uso": "comando [RUTA AL DIRECTORIO]",
             "ejemplo": "cd /home/usuario/documentos",

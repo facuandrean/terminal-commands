@@ -214,7 +214,7 @@ body {
 }
 
 .command-card-content.active {
-    max-height: 100vh; /* Ajusta la altura máxima para mostrar el contenido */
+    max-height: 500vh; /* Ajusta la altura máxima para mostrar el contenido */
     padding: .5rem;
     visibility: visible;
 }
@@ -227,6 +227,14 @@ body {
 .command-card-content p {
     font-size: 1rem;
     margin: 1rem 0rem;
+}
+
+.command-card-content li {
+    padding: 1rem 0rem 0rem 0rem;
+}
+
+.command-card-content li:last-child {
+    margin-bottom: 2rem;
 }
 
 .contact_me {
