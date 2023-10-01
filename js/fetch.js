@@ -3,16 +3,13 @@ export function fetchData() {
     const $fetch = d.querySelector('.main');
     const $fragment = d.createDocumentFragment();
     
-    fetch("http://facuandrean.github.io/json/commands.json")
+    fetch("../json/commands.json")
     .then((res) => (res.ok ? res.json() : Promise.reject(res)))
     .then((json) => {
 
         Object.keys(json.comandos).forEach((comandoKey) => {
             const comando = json.comandos[comandoKey];
-
-            // console.log(comando)
-            console.log(comando.banderas)
-    
+                
             const $card = d.createElement('div');
             $card.classList.add('command-card');
 
@@ -45,14 +42,10 @@ export function fetchData() {
 
             const $usingMode = d.createElement('p');
             $usingMode.innerHTML = `<b>Modo de uso:</b> ${comando.modo_de_uso}`;
-            // const $usingExample = d.createElement('p');
-            // $usingExample.innerHTML = `<b>Ejemplo:</b> ${comando.ejemplo}`;
-            // const $usingResult = d.createElement('p');
-            // $usingResult.innerHTML = `<b>Resultado:</b> ${comando.resultado}`
-
+            $usingMode.style.textAlign = "center";
 
             const $flags = d.createElement('ul');
-            $flags.innerHTML = `<b>Banderas:</b>`;
+            $flags.innerHTML = `<b>Banderas / Opciones:</b>`;
             
             Object.keys(comando.banderas).forEach((banderaKey) => { 
                 const bandera = comando.banderas[banderaKey];
@@ -62,7 +55,6 @@ export function fetchData() {
                 
                 const $examples = d.createElement('ul');
 
-                // Verifica si la bandera tiene ejemplos
                 if (bandera.ejemplo) {
                     const ejemplo = bandera.ejemplo;
 
@@ -79,7 +71,6 @@ export function fetchData() {
                     $examples.appendChild($resultExample);
                 }
 
-                // Agrega el elemento de ejemplos al elemento de bandera
                 $flag.appendChild($examples);
 
                 $flags.appendChild($flag);
@@ -89,8 +80,6 @@ export function fetchData() {
             $content.appendChild($name);
             $content.appendChild($description);
             $content.appendChild($usingMode);
-            // $content.appendChild($usingExample);
-            // $content.appendChild($usingResult);
             $content.appendChild($flags);
 
             $card.appendChild($title);

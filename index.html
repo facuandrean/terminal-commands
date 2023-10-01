@@ -27,7 +27,7 @@
         <h1>Comandos de linux</h1>
         <br>
         <h3>Buscar comandos...</h3>
-        <input type="search" name="" id="" placeholder="Ingrese el comando a buscar">
+        <input type="search" name="" id="search-command" placeholder="Ingrese el comando a buscar">
     </aside>
 
     <main class="main container">
@@ -38,7 +38,8 @@
         <form action="https://formsubmit.co/facundoandrean22@gmail.com" method="POST" class="contact_me-form" target="_blank">
             <legend>¿Hay algún error? ¡Házmelo saber!</legend>
             <input type="text" name="subject" placeholder="¿Añadir o corregir comando?..." title="El asunto es requerido" required>
-            <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+            <!-- <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required> -->
+            <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-zA-Z0-9\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
             <textarea name="comments" cols="2" rows="5" placeholder="Escribe tu idea o corrección..." data-pattern="^.{1,255}$" title="Tu comentario no debe exceder los 255 caracteres" required></textarea>
             <input type="submit" value="Enviar">
             <div class="contact_me-form-loader none">

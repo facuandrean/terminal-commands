@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5, h6, p {
     user-select: none;
 }
 
+
 /* Utilities */
 
 .container {
@@ -76,7 +77,6 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     max-width: 1000px;
     min-width: 375px;
-    border: 1px solid red;
 }
 
 .none {
@@ -88,14 +88,37 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
     font-size: 16px;
     color: black;
-    border: 1px solid red;
 }
 
 .attribution a {
     color: black;
 }
 
+.filter {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
+
 /* Site properties */
+
+html::-webkit-scrollbar {
+    width: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(63, 63, 63);
+}
+
+html::-webkit-scrollbar-track {
+    background: black;
+}
+
+html {
+    background: rgb(45,115,253) !important;
+    background: linear-gradient(0deg, rgba(45,115,253,1) 0%, rgba(34,193,195,1) 100%) !important;
+}
 
 body {
     width: 100%;
@@ -108,7 +131,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid blue;
 }
 
 .header-logo {
@@ -143,7 +165,6 @@ body {
 .search {
     margin: 3rem auto;
     padding: 1rem;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,18 +187,24 @@ body {
     width: 80%;
     padding: .5rem .1rem;
     margin: 0 auto;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0aa7aa;
+}
+
+.search input[type="search"]::placeholder {
+    color: black;
 }
 
 .main {
     width: 100%;
-    min-height: 100vh; /* Agrega una altura mínima al main para que se expanda */
-    border: 1px solid red;
+    min-height: 0vh; /* Agrega una altura mínima al main para que se expanda */
     padding: .5rem 1rem;
 }
 
 .command-card {
     width: 100%;
-    border: 1px solid black;
     margin-bottom: 1rem;
 }
 
@@ -191,7 +218,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
     cursor: pointer;
     padding: .5rem 0rem;
 }
@@ -240,7 +266,6 @@ body {
 .contact_me {
     margin: 3rem auto;
     padding: 1rem;
-    border: 1px solid red;
 }
 
 .contact_me form {
@@ -249,11 +274,11 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 1rem;
 }
 
 .contact_me legend {
     font-size: 1.2rem;
-    border: 1px solid red;
     font-weight: 500;
     font-size: 1.1rem;
     margin: 0 auto 1rem auto;
@@ -264,6 +289,10 @@ body {
     width: 100%;
     margin-bottom: .5rem;
     padding: .5rem;
+    background-color: transparent !important;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0a4ccf;
 }
 
 .contact_me textarea {
@@ -271,11 +300,39 @@ body {
     width: 100%;
     padding: .5rem;
     margin-bottom: .5rem;
+    background-color: transparent !important;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0a4ccf;
 }
 
+.contact_me input,
+.contact_me textarea {
+    background-color: transparent !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #0a4ccf;
+}
+
+.contact_me input::placeholder,
+.contact_me textarea::placeholder {
+    color: black;
+}
+
+
 .contact_me input[type="submit"] {
-    width: 30%;
+    width: 20%;
     margin-bottom: 0;
+    cursor: pointer;
+    background-color: transparent !important;
+    border: 2px solid #0a4ccf;
+    transition: all .5s ease;
+}
+
+.contact_me input[type="submit"]:hover {
+    opacity: .7;
 }
 
 /* Mediaqueries */
