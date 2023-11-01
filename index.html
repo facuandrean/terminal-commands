@@ -278,6 +278,14 @@
 
     # Para obtener el resto de la división:     
     let r=9%4
+    echo $r
+
+    # Para incrementar:
+    let r++
+    echo $r
+    
+    # Para decrementar:
+    let r--
     echo $r</code>
                     </pre>
                     <p>Notar que la división es entera, no arroja resultados decimales.</p>
@@ -303,6 +311,14 @@
     
     # Para obtener el resto de la división:     
     r=`expr 9 % 4`
+    echo $r    
+    
+    # Para incrementar:
+    r=`expr $r + 1`
+    echo $r
+    
+    # Para decrementar:
+    r=`expr $r - 1`
     echo $r</code>
                     </pre>
                     <p>Notar que hay un espacio entre los operadores y operandos, esto es porque cada uno de ellos es un parámetro para el comando expr.</p>
@@ -328,9 +344,48 @@
 
     # Para obtener el resto de la división:     
     r=$((9%4))
+    echo $r
+
+    # Para incrementar:
+    ((r++))
+    echo $r
+    
+    # Para decrementar:
+    ((r--))
     echo $r</code>
                     </pre>
                     <p>Notar que no hace falta el espacio entre los operadores y los operandos.</p>
+                </div>
+
+                <div class="menu-opciones">
+                    <h3>Menú de opciones</h3>
+                    <pre class="content-code">
+                        <code>
+    #!/bin/bash
+    while true
+    do
+        echo "Menú de opciones:"
+        echo "A&#41; Ejecutar funcionalidad A."
+        echo "B&#41; Ejecutar funcionalidad B."
+        echo "C&#41; Salir."
+
+        echo -n "Ingrese una opción: "
+        read opcion
+        case $opcion in
+            a|A&#41;
+                # Acá se escribe el contenido de la funcionalidad A.
+                echo "Ejecutando la funcionalidad A..."
+                ;;
+            b|B&#41;
+                # Acá se escribe el contenido de la funcionalidad B.
+                echo "Ejecutando la funcionalidad B..."
+                ;;
+            c|C&#41;
+                break;;
+        esac
+
+    done</code>
+                    </pre>
                 </div>
             </div>
 
