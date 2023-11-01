@@ -1165,671 +1165,671 @@
                 "modo_de_uso": "kill [OPCIONES] PID",
                 "ejemplo": "kill -s SIGTERM 1234",
                 "resultado": "Envía la señal SIGTERM al proceso con el ID 1234 para solicitar una terminación ordenada."
-            },
-            "comando_ps": {
-                "comando": "ps",
-                "nombre": "Process Status",
-                "descripcion": "El comando `ps` se utiliza para mostrar información sobre los procesos en ejecución.",
-                "banderas": {
-                    "-a": {
-                        "descripcion": "Muestra información sobre todos los procesos de todos los usuarios.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps -a",
-                            "resultado": "Muestra información detallada sobre todos los procesos."
-                        }
-                    },
-                    "-u": {
-                        "descripcion": "Muestra información extendida sobre los procesos del usuario actual.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps -u",
-                            "resultado": "Muestra información detallada sobre los procesos del usuario actual."
-                        }
-                    },
-                    "-f": {
-                        "descripcion": "Muestra una salida completa y detallada.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps -f",
-                            "resultado": "Muestra información completa y detallada sobre los procesos."
-                        }
-                    },
-                    "-e": {
-                        "descripcion": "Muestra información sobre todos los procesos, equivalente a -A.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps -e",
-                            "resultado": "Muestra información sobre todos los procesos."
-                        }
-                    },
-                    "-l": {
-                        "descripcion": "Muestra información adicional y formateada de manera más legible.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps -l",
-                            "resultado": "Muestra información detallada en un formato legible."
-                        }
-                    },
-                    "--forest": {
-                        "descripcion": "Muestra la jerarquía de procesos en formato de árbol.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "ps --forest",
-                            "resultado": "Muestra la jerarquía de procesos en formato de árbol."
-                        }
+        },
+        "comando_ps": {
+            "comando": "ps",
+            "nombre": "Process Status",
+            "descripcion": "El comando `ps` se utiliza para mostrar información sobre los procesos en ejecución.",
+            "banderas": {
+                "-a": {
+                    "descripcion": "Muestra información sobre todos los procesos de todos los usuarios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps -a",
+                        "resultado": "Muestra información detallada sobre todos los procesos."
                     }
                 },
-                "modo_de_uso": "ps [OPCIONES]",
-                "ejemplo": "ps -ef",
-                "resultado": "Muestra información detallada sobre todos los procesos en formato extendido y completo."
-            },
-            "comando_pstree": {
-                "comando": "pstree",
-                "nombre": "Process Tree",
-                "descripcion": "El comando `pstree` se utiliza para mostrar una representación en forma de árbol de los procesos en ejecución.",
-                "banderas": {
-                    "-a": {
-                        "descripcion": "Muestra los argumentos de línea de comandos de los procesos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "pstree -a",
-                            "resultado": "Muestra una representación en árbol de los procesos con sus argumentos de línea de comandos."
-                        }
-                    },
-                    "-h": {
-                        "descripcion": "Hace que la salida sea más 'humana', muestra la longitud completa de la línea de comandos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "pstree -h",
-                            "resultado": "Muestra la representación en árbol de los procesos con líneas de comandos completas."
-                        }
-                    },
-                    "-p": {
-                        "descripcion": "Muestra los ID de proceso (PIDs) junto con los nombres de los procesos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "pstree -p",
-                            "resultado": "Muestra la representación en árbol de los procesos con sus PIDs."
-                        }
-                    },
-                    "-u": {
-                        "descripcion": "Muestra el usuario propietario de cada proceso.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "pstree -u",
-                            "resultado": "Muestra la representación en árbol de los procesos con el usuario propietario de cada proceso."
-                        }
-                    },
-                    "-Z": {
-                        "descripcion": "Muestra el contexto de seguridad de SELinux de los procesos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "pstree -Z",
-                            "resultado": "Muestra la representación en árbol de los procesos con el contexto de seguridad de SELinux."
-                        }
+                "-u": {
+                    "descripcion": "Muestra información extendida sobre los procesos del usuario actual.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps -u",
+                        "resultado": "Muestra información detallada sobre los procesos del usuario actual."
                     }
                 },
-                "modo_de_uso": "pstree [OPCIONES]",
-                "ejemplo": "pstree -up",
-                "resultado": "Muestra una representación en árbol de los procesos con sus PIDs y el usuario propietario."
-            },
-            "comando_top": {
-                "comando": "top",
-                "nombre": "Top",
-                "descripcion": "El comando `top` se utiliza para mostrar información en tiempo real sobre los procesos del sistema.",
-                "banderas": {
-                    "-d seconds": {
-                        "descripcion": "Especifica el intervalo de actualización en segundos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "top -d 5",
-                            "resultado": "Actualiza la información cada 5 segundos."
-                        }
-                    },
-                    "-p pid1,pid2,...": {
-                        "descripcion": "Muestra solo los procesos con los IDs de proceso especificados.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "top -p 1234,5678",
-                            "resultado": "Muestra información solo para los procesos con ID 1234 y 5678."
-                        }
-                    },
-                    "-u username": {
-                        "descripcion": "Muestra solo los procesos del usuario especificado.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "top -u user",
-                            "resultado": "Muestra información solo para los procesos del usuario 'user'."
-                        }
-                    },
-                    "-q": {
-                        "descripcion": "Sale después de mostrar una sola actualización de la pantalla.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "top -q",
-                            "resultado": "Muestra una sola actualización y luego sale."
-                        }
-                    },
-                    "-c": {
-                        "descripcion": "Muestra la línea de comandos completos de los procesos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "top -c",
-                            "resultado": "Muestra la línea de comandos completos de los procesos."
-                        }
+                "-f": {
+                    "descripcion": "Muestra una salida completa y detallada.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps -f",
+                        "resultado": "Muestra información completa y detallada sobre los procesos."
                     }
                 },
-                "modo_de_uso": "top [OPCIONES]",
-                "ejemplo": "top -d 3 -p 1234 -u user",
-                "resultado": "Muestra información actualizada cada 3 segundos, solo para los procesos con ID 1234 del usuario 'user'."
-            },
-            "comando_nohup": {
-                "comando": "nohup",
-                "nombre": "Nohup",
-                "descripcion": "El comando `nohup` se utiliza para ejecutar comandos de manera que sigan ejecutándose incluso después de cerrar la terminal.",
-                "banderas": {
-                    "-c": {
-                        "descripcion": "Ignora la señal SIGINT, lo que evita que el comando se detenga con CTRL+C.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nohup -c comando",
-                            "resultado": "Ejecuta 'comando' y lo protege contra la señal SIGINT."
-                        }
-                    },
-                    "-h": {
-                        "descripcion": "Muestra un mensaje de ayuda con las opciones de nohup.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nohup -h",
-                            "resultado": "Muestra información de ayuda sobre las opciones de nohup."
-                        }
-                    },
-                    "-p": {
-                        "descripcion": "Muestra el ID de proceso (PID) del comando que se está ejecutando.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nohup -p",
-                            "resultado": "Muestra el PID del comando en ejecución."
-                        }
-                    },
-                    "-a": {
-                        "descripcion": "Especifica el archivo al que se redirige la salida estándar y error.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nohup -a salida.log comando",
-                            "resultado": "Redirige la salida estándar y error a 'salida.log'."
-                        }
-                    },
-                    "-b": {
-                        "descripcion": "Inicia el comando en segundo plano, incluso si no está seguido de '&'.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nohup -b comando",
-                            "resultado": "Inicia 'comando' en segundo plano sin necesidad de '&'."
-                        }
+                "-e": {
+                    "descripcion": "Muestra información sobre todos los procesos, equivalente a -A.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps -e",
+                        "resultado": "Muestra información sobre todos los procesos."
                     }
                 },
-                "modo_de_uso": "nohup [OPCIONES] comando [ARGUMENTOS]",
-                "ejemplo": "nohup -c -a salida.log -b comando arg1 arg2",
-                "resultado": "Ejecuta 'comando arg1 arg2' con nohup, ignorando SIGINT, redirigiendo la salida a 'salida.log' y ejecutándolo en segundo plano."
-            },
-            "comando_fg": {
-                "comando": "fg",
-                "nombre": "Foreground",
-                "descripcion": "El comando `fg` se utiliza para mover un trabajo al primer plano, haciendo que sea el trabajo activo.",
-                "banderas": {
-                    "%job": {
-                        "descripcion": "Mueve el trabajo especificado al primer plano.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "fg %1",
-                            "resultado": "Mueve el trabajo con ID 1 al primer plano."
-                        }
-                    },
-                    "-l": {
-                        "descripcion": "Muestra una lista de trabajos en segundo plano junto con sus IDs.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "fg -l",
-                            "resultado": "Muestra una lista de trabajos en segundo plano con sus respectivos IDs."
-                        }
-                    },
-                    "nombre_comando": {
-                        "descripcion": "Mueve el último trabajo en segundo plano que coincide con el nombre del comando al primer plano.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "fg nombre_comando",
-                            "resultado": "Mueve el último trabajo en segundo plano con el nombre 'nombre_comando' al primer plano."
-                        }
+                "-l": {
+                    "descripcion": "Muestra información adicional y formateada de manera más legible.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps -l",
+                        "resultado": "Muestra información detallada en un formato legible."
                     }
                 },
-                "modo_de_uso": "fg [OPCIONES] [ID_DE_TRABAJO o NOMBRE_DE_COMANDO]",
-                "ejemplo": "fg %2",
-                "resultado": "Mueve el trabajo con ID 2 al primer plano."
+                "--forest": {
+                    "descripcion": "Muestra la jerarquía de procesos en formato de árbol.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "ps --forest",
+                        "resultado": "Muestra la jerarquía de procesos en formato de árbol."
+                    }
+                }
             },
-            "comando_bg": {
-                "comando": "bg",
-                "nombre": "Background",
-                "descripcion": "El comando `bg` se utiliza para enviar trabajos al segundo plano, permitiéndoles ejecutarse en segundo plano.",
-                "banderas": {
-                    "%job": {
-                        "descripcion": "Mueve el trabajo especificado al segundo plano.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "bg %1",
-                            "resultado": "Mueve el trabajo con ID 1 al segundo plano."
-                        }
-                    },
-                    "-l": {
-                        "descripcion": "Muestra una lista de trabajos en segundo plano junto con sus IDs.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "bg -l",
-                            "resultado": "Muestra una lista de trabajos en segundo plano con sus respectivos IDs."
-                        }
-                    },
-                    "nombre_comando": {
-                        "descripcion": "Mueve el último trabajo en segundo plano que coincide con el nombre del comando al segundo plano.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "bg nombre_comando",
-                            "resultado": "Mueve el último trabajo en segundo plano con el nombre 'nombre_comando' al segundo plano."
-                        }
+            "modo_de_uso": "ps [OPCIONES]",
+            "ejemplo": "ps -ef",
+            "resultado": "Muestra información detallada sobre todos los procesos en formato extendido y completo."
+        },
+        "comando_pstree": {
+            "comando": "pstree",
+            "nombre": "Process Tree",
+            "descripcion": "El comando `pstree` se utiliza para mostrar una representación en forma de árbol de los procesos en ejecución.",
+            "banderas": {
+                "-a": {
+                    "descripcion": "Muestra los argumentos de línea de comandos de los procesos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pstree -a",
+                        "resultado": "Muestra una representación en árbol de los procesos con sus argumentos de línea de comandos."
                     }
                 },
-                "modo_de_uso": "bg [OPCIONES] [ID_DE_TRABAJO o NOMBRE_DE_COMANDO]",
-                "ejemplo": "bg %2",
-                "resultado": "Mueve el trabajo con ID 2 al segundo plano."
-            },
-            "comando_nice": {
-                "comando": "nice",
-                "nombre": "Nice",
-                "descripcion": "El comando `nice` se utiliza para ajustar la prioridad de ejecución de un comando, permitiendo controlar la asignación de recursos del sistema.",
-                "banderas": {
-                    "-n nivel": {
-                        "descripcion": "Especifica el nivel de prioridad del comando, donde un nivel más bajo indica una prioridad más alta.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nice -n 10 comando",
-                            "resultado": "Ejecuta 'comando' con una prioridad de 10."
-                        }
-                    },
-                    "--adjustment=nivel": {
-                        "descripcion": "Otra forma de especificar el nivel de prioridad del comando.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nice --adjustment=5 comando",
-                            "resultado": "Ejecuta 'comando' con una prioridad de 5."
-                        }
-                    },
-                    "--help": {
-                        "descripcion": "Muestra información de ayuda sobre las opciones de nice.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nice --help",
-                            "resultado": "Muestra información de ayuda sobre las opciones de nice."
-                        }
-                    },
-                    "--version": {
-                        "descripcion": "Muestra información sobre la versión de nice.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "nice --version",
-                            "resultado": "Muestra información sobre la versión de nice."
-                        }
+                "-h": {
+                    "descripcion": "Hace que la salida sea más 'humana', muestra la longitud completa de la línea de comandos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pstree -h",
+                        "resultado": "Muestra la representación en árbol de los procesos con líneas de comandos completas."
                     }
                 },
-                "modo_de_uso": "nice [OPCIONES] [COMANDO [ARGUMENTOS...]]",
-                "ejemplo": "nice -n 5 ./mi_script.sh",
-                "resultado": "Ejecuta el script 'mi_script.sh' con una prioridad de 5."
-            },
-            "comando_renice": {
-                "comando": "renice",
-                "nombre": "Renice",
-                "descripcion": "El comando `renice` se utiliza para cambiar la prioridad de ejecución de procesos en ejecución.",
-                "banderas": {
-                    "-n nivel": {
-                        "descripcion": "Especifica el nuevo nivel de prioridad del proceso, donde un nivel más bajo indica una prioridad más alta.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "renice -n 5 -p 1234",
-                            "resultado": "Cambia la prioridad del proceso con ID 1234 a 5."
-                        }
-                    },
-                    "--priority=nivel": {
-                        "descripcion": "Otra forma de especificar el nuevo nivel de prioridad del proceso.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "renice --priority=10 -p 5678",
-                            "resultado": "Cambia la prioridad del proceso con ID 5678 a 10."
-                        }
-                    },
-                    "-g grupo": {
-                        "descripcion": "Cambia la prioridad de todos los procesos pertenecientes al grupo especificado.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "renice -n 3 -g mygroup",
-                            "resultado": "Cambia la prioridad de todos los procesos del grupo 'mygroup' a 3."
-                        }
-                    },
-                    "-u usuario": {
-                        "descripcion": "Cambia la prioridad de todos los procesos pertenecientes al usuario especificado.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "renice -n 8 -u myuser",
-                            "resultado": "Cambia la prioridad de todos los procesos del usuario 'myuser' a 8."
-                        }
-                    },
-                    "--help": {
-                        "descripcion": "Muestra información de ayuda sobre las opciones de renice.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "renice --help",
-                            "resultado": "Muestra información de ayuda sobre las opciones de renice."
-                        }
+                "-p": {
+                    "descripcion": "Muestra los ID de proceso (PIDs) junto con los nombres de los procesos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pstree -p",
+                        "resultado": "Muestra la representación en árbol de los procesos con sus PIDs."
                     }
                 },
-                "modo_de_uso": "renice [OPCIONES] [ID_DE_PROCESO | -g GRUPO | -u USUARIO]",
-                "ejemplo": "renice -n 2 -p 9876",
-                "resultado": "Cambia la prioridad del proceso con ID 9876 a 2."
-            },
-            "comando_at": {
-                "comando": "at",
-                "nombre": "At",
-                "descripcion": "El comando `at` se utiliza para ejecutar comandos en un momento específico en el futuro.",
-                "banderas": {
-                    "hora": {
-                        "descripcion": "Especifica la hora en la que se ejecutará el comando. Puede ser en formato HH:MM o HH:MM AM/PM.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "at 14:30",
-                            "resultado": "Programa la ejecución del comando para las 14:30 horas."
-                        }
-                    },
-                    "fecha": {
-                        "descripcion": "Especifica la fecha en la que se ejecutará el comando. Puede ser en formato MM/DD/YYYY o DD.MM.YYYY.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "at 10/15/2023",
-                            "resultado": "Programa la ejecución del comando para el 15 de octubre de 2023."
-                        }
-                    },
-                    "-m": {
-                        "descripcion": "Envía un correo electrónico al usuario después de ejecutar el comando, si el sistema está configurado para enviar correos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "at -m 16:45",
-                            "resultado": "Programa la ejecución del comando para las 16:45 y envía un correo después de ejecutarlo."
-                        }
-                    },
-                    "-f archivo": {
-                        "descripcion": "Especifica un archivo que contiene comandos a ejecutar en lugar de ingresarlos manualmente.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "at -f mi_script.sh 12:00",
-                            "resultado": "Programa la ejecución del script 'mi_script.sh' a las 12:00."
-                        }
-                    },
-                    "--version": {
-                        "descripcion": "Muestra información sobre la versión de at.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "at --version",
-                            "resultado": "Muestra información sobre la versión de at."
-                        }
+                "-u": {
+                    "descripcion": "Muestra el usuario propietario de cada proceso.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pstree -u",
+                        "resultado": "Muestra la representación en árbol de los procesos con el usuario propietario de cada proceso."
                     }
                 },
-                "modo_de_uso": "at [OPCIONES] [HORA] [FECHA]",
-                "ejemplo": "at -m 13:00",
-                "resultado": "Programa la ejecución del comando para la 13:00 y envía un correo después de ejecutarlo."
+                "-Z": {
+                    "descripcion": "Muestra el contexto de seguridad de SELinux de los procesos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "pstree -Z",
+                        "resultado": "Muestra la representación en árbol de los procesos con el contexto de seguridad de SELinux."
+                    }
+                }
             },
-            "comando_atq": {
-                "comando": "atq",
-                "nombre": "At Queue",
-                "descripcion": "El comando `atq` muestra la cola de trabajos programados para ejecutarse con el comando `at`.",
-                "banderas": {
-                    "-q cola": {
-                        "descripcion": "Muestra solo los trabajos en la cola especificada.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atq -q a",
-                            "resultado": "Muestra los trabajos programados en la cola 'a'."
-                        }
-                    },
-                    "--help": {
-                        "descripcion": "Muestra información de ayuda sobre las opciones de atq.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atq --help",
-                            "resultado": "Muestra información de ayuda sobre las opciones de atq."
-                        }
-                    },
-                    "--version": {
-                        "descripcion": "Muestra información sobre la versión de atq.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atq --version",
-                            "resultado": "Muestra información sobre la versión de atq."
-                        }
+            "modo_de_uso": "pstree [OPCIONES]",
+            "ejemplo": "pstree -up",
+            "resultado": "Muestra una representación en árbol de los procesos con sus PIDs y el usuario propietario."
+        },
+        "comando_top": {
+            "comando": "top",
+            "nombre": "Top",
+            "descripcion": "El comando `top` se utiliza para mostrar información en tiempo real sobre los procesos del sistema.",
+            "banderas": {
+                "-d seconds": {
+                    "descripcion": "Especifica el intervalo de actualización en segundos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "top -d 5",
+                        "resultado": "Actualiza la información cada 5 segundos."
                     }
                 },
-                "modo_de_uso": "atq [OPCIONES]",
-                "ejemplo": "atq -q a",
-                "resultado": "Muestra los trabajos programados en la cola 'a'."
-            },
-            "comando_atrm": {
-                "comando": "atrm",
-                "nombre": "At Remove",
-                "descripcion": "El comando `atrm` se utiliza para eliminar trabajos programados para ejecutarse con el comando `at`.",
-                "banderas": {
-                    "ID_DE_TRABAJO": {
-                        "descripcion": "Especifica el ID del trabajo que se eliminará. Pueden especificarse varios IDs separados por espacios.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atrm 1 3 5",
-                            "resultado": "Elimina los trabajos con ID 1, 3 y 5."
-                        }
-                    },
-                    "--file archivo": {
-                        "descripcion": "Especifica un archivo que contiene IDs de trabajos a eliminar, uno por línea.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atrm --file lista.txt",
-                            "resultado": "Elimina los trabajos cuyos IDs están listados en el archivo 'lista.txt'."
-                        }
-                    },
-                    "--help": {
-                        "descripcion": "Muestra información de ayuda sobre las opciones de atrm.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atrm --help",
-                            "resultado": "Muestra información de ayuda sobre las opciones de atrm."
-                        }
-                    },
-                    "--version": {
-                        "descripcion": "Muestra información sobre la versión de atrm.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "atrm --version",
-                            "resultado": "Muestra información sobre la versión de atrm."
-                        }
+                "-p pid1,pid2,...": {
+                    "descripcion": "Muestra solo los procesos con los IDs de proceso especificados.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "top -p 1234,5678",
+                        "resultado": "Muestra información solo para los procesos con ID 1234 y 5678."
                     }
                 },
-                "modo_de_uso": "atrm [OPCIONES] ID_DE_TRABAJO...",
-                "ejemplo": "atrm 1 3 5",
-                "resultado": "Elimina los trabajos con ID 1, 3 y 5."
-            },
-            "comando_batch": {
-                "comando": "batch",
-                "nombre": "batch",
-                "descripcion": "Ejecuta comandos por lotes, leídos desde un archivo.",
-                "banderas": {
-                    "-f": {
-                        "descripcion": "Especifica el archivo que contiene los comandos por lotes a ejecutar.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "batch -f archivo.txt",
-                            "resultado": "descripción del resultado que proporciona el comando con la bandera -f usado como ejemplo"
-                        }
-                    },
-                    "-v": {
-                        "descripcion": "Muestra la versión del comando batch.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "batch -v",
-                            "resultado": "descripción del resultado que proporciona el comando con la bandera -v usado como ejemplo"
-                        }
-                    },
-                    "-n": {
-                        "descripcion": "No ejecuta los comandos; solo muestra lo que haría.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "batch -n -f archivo.txt",
-                            "resultado": "descripción del resultado que proporciona el comando con la bandera -n usado como ejemplo"
-                        }
+                "-u username": {
+                    "descripcion": "Muestra solo los procesos del usuario especificado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "top -u user",
+                        "resultado": "Muestra información solo para los procesos del usuario 'user'."
                     }
                 },
-                "modo_de_uso": "batch [-f archivo] [-v] [-n]",
-                "ejemplo": "batch -f comandos.txt",
-                "resultado": "Ejecuta los comandos del archivo comandos.txt"
-            },
-            "comando_crontab": {
-                "comando": "crontab",
-                "nombre": "crontab",
-                "descripcion": "Administra las tablas de tiempo de los usuarios para programar tareas periódicas.",
-                "banderas": {
-                    "-e": {
-                        "descripcion": "Edita la tabla crontab actual del usuario.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "crontab -e",
-                            "resultado": "Abre el editor para editar las tareas programadas del usuario."
-                        }
-                    },
-                    "-l": {
-                        "descripcion": "Muestra la tabla crontab actual del usuario.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "crontab -l",
-                            "resultado": "Muestra las tareas programadas del usuario."
-                        }
-                    },
-                    "-r": {
-                        "descripcion": "Elimina la tabla crontab actual del usuario.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "crontab -r",
-                            "resultado": "Elimina todas las tareas programadas del usuario."
-                        }
+                "-q": {
+                    "descripcion": "Sale después de mostrar una sola actualización de la pantalla.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "top -q",
+                        "resultado": "Muestra una sola actualización y luego sale."
                     }
                 },
-                "modo_de_uso": "crontab [-e | -l | -r]",
-                "ejemplo": "crontab -e",
-                "resultado": "Abre el editor para editar las tareas programadas del usuario."
+                "-c": {
+                    "descripcion": "Muestra la línea de comandos completos de los procesos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "top -c",
+                        "resultado": "Muestra la línea de comandos completos de los procesos."
+                    }
+                }
             },
-            "comando_uptime": {
-                "comando": "uptime",
-                "nombre": "uptime",
-                "descripcion": "Muestra el tiempo que ha estado encendido el sistema y carga promedio del mismo.",
-                "banderas": {
-                    "-p": {
-                        "descripcion": "Muestra el tiempo transcurrido desde que se inició el sistema de forma más legible.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "uptime -p",
-                            "resultado": "Muestra el tiempo transcurrido desde el inicio del sistema de forma más legible."
-                        }
-                    },
-                    "-s": {
-                        "descripcion": "Muestra la fecha y hora en que se inició el sistema.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "uptime -s",
-                            "resultado": "Muestra la fecha y hora en que se inició el sistema."
-                        }
+            "modo_de_uso": "top [OPCIONES]",
+            "ejemplo": "top -d 3 -p 1234 -u user",
+            "resultado": "Muestra información actualizada cada 3 segundos, solo para los procesos con ID 1234 del usuario 'user'."
+        },
+        "comando_nohup": {
+            "comando": "nohup",
+            "nombre": "Nohup",
+            "descripcion": "El comando `nohup` se utiliza para ejecutar comandos de manera que sigan ejecutándose incluso después de cerrar la terminal.",
+            "banderas": {
+                "-c": {
+                    "descripcion": "Ignora la señal SIGINT, lo que evita que el comando se detenga con CTRL+C.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nohup -c comando",
+                        "resultado": "Ejecuta 'comando' y lo protege contra la señal SIGINT."
                     }
                 },
-                "modo_de_uso": "uptime [-p] [-s]",
-                "ejemplo": "uptime -p",
-                "resultado": "Muestra el tiempo transcurrido desde el inicio del sistema de forma más legible."
-            },
-            "comando_free": {
-                "comando": "free",
-                "nombre": "free",
-                "descripcion": "Muestra la cantidad de memoria libre y utilizada en el sistema.",
-                "banderas": {
-                    "-h": {
-                        "descripcion": "Muestra los tamaños de la memoria en un formato legible para humanos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "free -h",
-                            "resultado": "Muestra los tamaños de la memoria en un formato legible para humanos."
-                        }
-                    },
-                    "-s": {
-                        "descripcion": "Actualiza continuamente la salida de free con un intervalo especificado en segundos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "free -s 5",
-                            "resultado": "Actualiza continuamente la salida de free cada 5 segundos."
-                        }
-                    },
-                    "-m": {
-                        "descripcion": "Muestra los tamaños de la memoria en megabytes.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "free -m",
-                            "resultado": "Muestra los tamaños de la memoria en megabytes."
-                        }
-                    },
-                    "-c": {
-                        "descripcion": "Muestra la información de la memoria en formato CSV.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "free -c",
-                            "resultado": "Muestra la información de la memoria en formato CSV."
-                        }
+                "-h": {
+                    "descripcion": "Muestra un mensaje de ayuda con las opciones de nohup.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nohup -h",
+                        "resultado": "Muestra información de ayuda sobre las opciones de nohup."
                     }
                 },
-                "modo_de_uso": "free [-h] [-s segundos] [-m] [-c]",
-                "ejemplo": "free -m",
-                "resultado": "Muestra los tamaños de la memoria en megabytes."
-            },
-            "comando_vmstat": {
-                "comando": "vmstat",
-                "nombre": "vmstat",
-                "descripcion": "Muestra estadísticas del sistema, incluyendo la memoria, la actividad del procesador, el swapping y los bloques de entrada/salida.",
-                "banderas": {
-                    "-a": {
-                        "descripcion": "Muestra información sobre procesos activos, inactivos, zombies, etc.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "vmstat -a",
-                            "resultado": "Muestra información detallada sobre procesos activos, inactivos, zombies, etc."
-                        }
-                    },
-                    "-s": {
-                        "descripcion": "Muestra estadísticas en un formato más detallado.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "vmstat -s",
-                            "resultado": "Muestra estadísticas en un formato más detallado."
-                        }
-                    },
-                    "-n": {
-                        "descripcion": "Especifica la cantidad de actualizaciones y la frecuencia con la que se muestran las estadísticas. El intervalo es en segundos.",
-                        "ejemplo": {
-                            "uso": "Ejemplo de uso de la bandera:",
-                            "comando": "vmstat -n 2 5",
-                            "resultado": "Actualiza las estadísticas cada 2 segundos, mostrando un total de 5 actualizaciones."
-                        }
+                "-p": {
+                    "descripcion": "Muestra el ID de proceso (PID) del comando que se está ejecutando.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nohup -p",
+                        "resultado": "Muestra el PID del comando en ejecución."
                     }
                 },
-                "modo_de_uso": "vmstat [-a] [-s] [-n intervalo repeticiones]",
-                "ejemplo": "vmstat -n 2 5",
-                "resultado": "Actualiza las estadísticas cada 2 segundos, mostrando un total de 5 actualizaciones."
-            }
+                "-a": {
+                    "descripcion": "Especifica el archivo al que se redirige la salida estándar y error.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nohup -a salida.log comando",
+                        "resultado": "Redirige la salida estándar y error a 'salida.log'."
+                    }
+                },
+                "-b": {
+                    "descripcion": "Inicia el comando en segundo plano, incluso si no está seguido de '&'.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nohup -b comando",
+                        "resultado": "Inicia 'comando' en segundo plano sin necesidad de '&'."
+                    }
+                }
+            },
+            "modo_de_uso": "nohup [OPCIONES] comando [ARGUMENTOS]",
+            "ejemplo": "nohup -c -a salida.log -b comando arg1 arg2",
+            "resultado": "Ejecuta 'comando arg1 arg2' con nohup, ignorando SIGINT, redirigiendo la salida a 'salida.log' y ejecutándolo en segundo plano."
+        },
+        "comando_fg": {
+            "comando": "fg",
+            "nombre": "Foreground",
+            "descripcion": "El comando `fg` se utiliza para mover un trabajo al primer plano, haciendo que sea el trabajo activo.",
+            "banderas": {
+                "%job": {
+                    "descripcion": "Mueve el trabajo especificado al primer plano.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "fg %1",
+                        "resultado": "Mueve el trabajo con ID 1 al primer plano."
+                    }
+                },
+                "-l": {
+                    "descripcion": "Muestra una lista de trabajos en segundo plano junto con sus IDs.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "fg -l",
+                        "resultado": "Muestra una lista de trabajos en segundo plano con sus respectivos IDs."
+                    }
+                },
+                "nombre_comando": {
+                    "descripcion": "Mueve el último trabajo en segundo plano que coincide con el nombre del comando al primer plano.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "fg nombre_comando",
+                        "resultado": "Mueve el último trabajo en segundo plano con el nombre 'nombre_comando' al primer plano."
+                    }
+                }
+            },
+            "modo_de_uso": "fg [OPCIONES] [ID_DE_TRABAJO o NOMBRE_DE_COMANDO]",
+            "ejemplo": "fg %2",
+            "resultado": "Mueve el trabajo con ID 2 al primer plano."
+        },
+        "comando_bg": {
+            "comando": "bg",
+            "nombre": "Background",
+            "descripcion": "El comando `bg` se utiliza para enviar trabajos al segundo plano, permitiéndoles ejecutarse en segundo plano.",
+            "banderas": {
+                "%job": {
+                    "descripcion": "Mueve el trabajo especificado al segundo plano.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "bg %1",
+                        "resultado": "Mueve el trabajo con ID 1 al segundo plano."
+                    }
+                },
+                "-l": {
+                    "descripcion": "Muestra una lista de trabajos en segundo plano junto con sus IDs.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "bg -l",
+                        "resultado": "Muestra una lista de trabajos en segundo plano con sus respectivos IDs."
+                    }
+                },
+                "nombre_comando": {
+                    "descripcion": "Mueve el último trabajo en segundo plano que coincide con el nombre del comando al segundo plano.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "bg nombre_comando",
+                        "resultado": "Mueve el último trabajo en segundo plano con el nombre 'nombre_comando' al segundo plano."
+                    }
+                }
+            },
+            "modo_de_uso": "bg [OPCIONES] [ID_DE_TRABAJO o NOMBRE_DE_COMANDO]",
+            "ejemplo": "bg %2",
+            "resultado": "Mueve el trabajo con ID 2 al segundo plano."
+        },
+        "comando_nice": {
+            "comando": "nice",
+            "nombre": "Nice",
+            "descripcion": "El comando `nice` se utiliza para ajustar la prioridad de ejecución de un comando, permitiendo controlar la asignación de recursos del sistema.",
+            "banderas": {
+                "-n nivel": {
+                    "descripcion": "Especifica el nivel de prioridad del comando, donde un nivel más bajo indica una prioridad más alta.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nice -n 10 comando",
+                        "resultado": "Ejecuta 'comando' con una prioridad de 10."
+                    }
+                },
+                "--adjustment=nivel": {
+                    "descripcion": "Otra forma de especificar el nivel de prioridad del comando.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nice --adjustment=5 comando",
+                        "resultado": "Ejecuta 'comando' con una prioridad de 5."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre las opciones de nice.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nice --help",
+                        "resultado": "Muestra información de ayuda sobre las opciones de nice."
+                    }
+                },
+                "--version": {
+                    "descripcion": "Muestra información sobre la versión de nice.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "nice --version",
+                        "resultado": "Muestra información sobre la versión de nice."
+                    }
+                }
+            },
+            "modo_de_uso": "nice [OPCIONES] [COMANDO [ARGUMENTOS...]]",
+            "ejemplo": "nice -n 5 ./mi_script.sh",
+            "resultado": "Ejecuta el script 'mi_script.sh' con una prioridad de 5."
+        },
+        "comando_renice": {
+            "comando": "renice",
+            "nombre": "Renice",
+            "descripcion": "El comando `renice` se utiliza para cambiar la prioridad de ejecución de procesos en ejecución.",
+            "banderas": {
+                "-n nivel": {
+                    "descripcion": "Especifica el nuevo nivel de prioridad del proceso, donde un nivel más bajo indica una prioridad más alta.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "renice -n 5 -p 1234",
+                        "resultado": "Cambia la prioridad del proceso con ID 1234 a 5."
+                    }
+                },
+                "--priority=nivel": {
+                    "descripcion": "Otra forma de especificar el nuevo nivel de prioridad del proceso.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "renice --priority=10 -p 5678",
+                        "resultado": "Cambia la prioridad del proceso con ID 5678 a 10."
+                    }
+                },
+                "-g grupo": {
+                    "descripcion": "Cambia la prioridad de todos los procesos pertenecientes al grupo especificado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "renice -n 3 -g mygroup",
+                        "resultado": "Cambia la prioridad de todos los procesos del grupo 'mygroup' a 3."
+                    }
+                },
+                "-u usuario": {
+                    "descripcion": "Cambia la prioridad de todos los procesos pertenecientes al usuario especificado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "renice -n 8 -u myuser",
+                        "resultado": "Cambia la prioridad de todos los procesos del usuario 'myuser' a 8."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre las opciones de renice.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "renice --help",
+                        "resultado": "Muestra información de ayuda sobre las opciones de renice."
+                    }
+                }
+            },
+            "modo_de_uso": "renice [OPCIONES] [ID_DE_PROCESO | -g GRUPO | -u USUARIO]",
+            "ejemplo": "renice -n 2 -p 9876",
+            "resultado": "Cambia la prioridad del proceso con ID 9876 a 2."
+        },
+        "comando_at": {
+            "comando": "at",
+            "nombre": "At",
+            "descripcion": "El comando `at` se utiliza para ejecutar comandos en un momento específico en el futuro.",
+            "banderas": {
+                "hora": {
+                    "descripcion": "Especifica la hora en la que se ejecutará el comando. Puede ser en formato HH:MM o HH:MM AM/PM.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "at 14:30",
+                        "resultado": "Programa la ejecución del comando para las 14:30 horas."
+                    }
+                },
+                "fecha": {
+                    "descripcion": "Especifica la fecha en la que se ejecutará el comando. Puede ser en formato MM/DD/YYYY o DD.MM.YYYY.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "at 10/15/2023",
+                        "resultado": "Programa la ejecución del comando para el 15 de octubre de 2023."
+                    }
+                },
+                "-m": {
+                    "descripcion": "Envía un correo electrónico al usuario después de ejecutar el comando, si el sistema está configurado para enviar correos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "at -m 16:45",
+                        "resultado": "Programa la ejecución del comando para las 16:45 y envía un correo después de ejecutarlo."
+                    }
+                },
+                "-f archivo": {
+                    "descripcion": "Especifica un archivo que contiene comandos a ejecutar en lugar de ingresarlos manualmente.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "at -f mi_script.sh 12:00",
+                        "resultado": "Programa la ejecución del script 'mi_script.sh' a las 12:00."
+                    }
+                },
+                "--version": {
+                    "descripcion": "Muestra información sobre la versión de at.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "at --version",
+                        "resultado": "Muestra información sobre la versión de at."
+                    }
+                }
+            },
+            "modo_de_uso": "at [OPCIONES] [HORA] [FECHA]",
+            "ejemplo": "at -m 13:00",
+            "resultado": "Programa la ejecución del comando para la 13:00 y envía un correo después de ejecutarlo."
+        },
+        "comando_atq": {
+            "comando": "atq",
+            "nombre": "At Queue",
+            "descripcion": "El comando `atq` muestra la cola de trabajos programados para ejecutarse con el comando `at`.",
+            "banderas": {
+                "-q cola": {
+                    "descripcion": "Muestra solo los trabajos en la cola especificada.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atq -q a",
+                        "resultado": "Muestra los trabajos programados en la cola 'a'."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre las opciones de atq.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atq --help",
+                        "resultado": "Muestra información de ayuda sobre las opciones de atq."
+                    }
+                },
+                "--version": {
+                    "descripcion": "Muestra información sobre la versión de atq.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atq --version",
+                        "resultado": "Muestra información sobre la versión de atq."
+                    }
+                }
+            },
+            "modo_de_uso": "atq [OPCIONES]",
+            "ejemplo": "atq -q a",
+            "resultado": "Muestra los trabajos programados en la cola 'a'."
+        },
+        "comando_atrm": {
+            "comando": "atrm",
+            "nombre": "At Remove",
+            "descripcion": "El comando `atrm` se utiliza para eliminar trabajos programados para ejecutarse con el comando `at`.",
+            "banderas": {
+                "ID_DE_TRABAJO": {
+                    "descripcion": "Especifica el ID del trabajo que se eliminará. Pueden especificarse varios IDs separados por espacios.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atrm 1 3 5",
+                        "resultado": "Elimina los trabajos con ID 1, 3 y 5."
+                    }
+                },
+                "--file archivo": {
+                    "descripcion": "Especifica un archivo que contiene IDs de trabajos a eliminar, uno por línea.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atrm --file lista.txt",
+                        "resultado": "Elimina los trabajos cuyos IDs están listados en el archivo 'lista.txt'."
+                    }
+                },
+                "--help": {
+                    "descripcion": "Muestra información de ayuda sobre las opciones de atrm.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atrm --help",
+                        "resultado": "Muestra información de ayuda sobre las opciones de atrm."
+                    }
+                },
+                "--version": {
+                    "descripcion": "Muestra información sobre la versión de atrm.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "atrm --version",
+                        "resultado": "Muestra información sobre la versión de atrm."
+                    }
+                }
+            },
+            "modo_de_uso": "atrm [OPCIONES] ID_DE_TRABAJO...",
+            "ejemplo": "atrm 1 3 5",
+            "resultado": "Elimina los trabajos con ID 1, 3 y 5."
+        },
+        "comando_batch": {
+            "comando": "batch",
+            "nombre": "batch",
+            "descripcion": "Ejecuta comandos por lotes, leídos desde un archivo.",
+            "banderas": {
+                "-f": {
+                    "descripcion": "Especifica el archivo que contiene los comandos por lotes a ejecutar.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "batch -f archivo.txt",
+                        "resultado": "descripción del resultado que proporciona el comando con la bandera -f usado como ejemplo"
+                    }
+                },
+                "-v": {
+                    "descripcion": "Muestra la versión del comando batch.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "batch -v",
+                        "resultado": "descripción del resultado que proporciona el comando con la bandera -v usado como ejemplo"
+                    }
+                },
+                "-n": {
+                    "descripcion": "No ejecuta los comandos; solo muestra lo que haría.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "batch -n -f archivo.txt",
+                        "resultado": "descripción del resultado que proporciona el comando con la bandera -n usado como ejemplo"
+                    }
+                }
+            },
+            "modo_de_uso": "batch [-f archivo] [-v] [-n]",
+            "ejemplo": "batch -f comandos.txt",
+            "resultado": "Ejecuta los comandos del archivo comandos.txt"
+        },
+        "comando_crontab": {
+            "comando": "crontab",
+            "nombre": "crontab",
+            "descripcion": "Administra las tablas de tiempo de los usuarios para programar tareas periódicas.",
+            "banderas": {
+                "-e": {
+                    "descripcion": "Edita la tabla crontab actual del usuario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "crontab -e",
+                        "resultado": "Abre el editor para editar las tareas programadas del usuario."
+                    }
+                },
+                "-l": {
+                    "descripcion": "Muestra la tabla crontab actual del usuario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "crontab -l",
+                        "resultado": "Muestra las tareas programadas del usuario."
+                    }
+                },
+                "-r": {
+                    "descripcion": "Elimina la tabla crontab actual del usuario.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "crontab -r",
+                        "resultado": "Elimina todas las tareas programadas del usuario."
+                    }
+                }
+            },
+            "modo_de_uso": "crontab [-e | -l | -r]",
+            "ejemplo": "crontab -e",
+            "resultado": "Abre el editor para editar las tareas programadas del usuario."
+        },
+        "comando_uptime": {
+            "comando": "uptime",
+            "nombre": "uptime",
+            "descripcion": "Muestra el tiempo que ha estado encendido el sistema y carga promedio del mismo.",
+            "banderas": {
+                "-p": {
+                    "descripcion": "Muestra el tiempo transcurrido desde que se inició el sistema de forma más legible.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "uptime -p",
+                        "resultado": "Muestra el tiempo transcurrido desde el inicio del sistema de forma más legible."
+                    }
+                },
+                "-s": {
+                    "descripcion": "Muestra la fecha y hora en que se inició el sistema.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "uptime -s",
+                        "resultado": "Muestra la fecha y hora en que se inició el sistema."
+                    }
+                }
+            },
+            "modo_de_uso": "uptime [-p] [-s]",
+            "ejemplo": "uptime -p",
+            "resultado": "Muestra el tiempo transcurrido desde el inicio del sistema de forma más legible."
+        },
+        "comando_free": {
+            "comando": "free",
+            "nombre": "free",
+            "descripcion": "Muestra la cantidad de memoria libre y utilizada en el sistema.",
+            "banderas": {
+                "-h": {
+                    "descripcion": "Muestra los tamaños de la memoria en un formato legible para humanos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "free -h",
+                        "resultado": "Muestra los tamaños de la memoria en un formato legible para humanos."
+                    }
+                },
+                "-s": {
+                    "descripcion": "Actualiza continuamente la salida de free con un intervalo especificado en segundos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "free -s 5",
+                        "resultado": "Actualiza continuamente la salida de free cada 5 segundos."
+                    }
+                },
+                "-m": {
+                    "descripcion": "Muestra los tamaños de la memoria en megabytes.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "free -m",
+                        "resultado": "Muestra los tamaños de la memoria en megabytes."
+                    }
+                },
+                "-c": {
+                    "descripcion": "Muestra la información de la memoria en formato CSV.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "free -c",
+                        "resultado": "Muestra la información de la memoria en formato CSV."
+                    }
+                }
+            },
+            "modo_de_uso": "free [-h] [-s segundos] [-m] [-c]",
+            "ejemplo": "free -m",
+            "resultado": "Muestra los tamaños de la memoria en megabytes."
+        },
+        "comando_vmstat": {
+            "comando": "vmstat",
+            "nombre": "vmstat",
+            "descripcion": "Muestra estadísticas del sistema, incluyendo la memoria, la actividad del procesador, el swapping y los bloques de entrada/salida.",
+            "banderas": {
+                "-a": {
+                    "descripcion": "Muestra información sobre procesos activos, inactivos, zombies, etc.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "vmstat -a",
+                        "resultado": "Muestra información detallada sobre procesos activos, inactivos, zombies, etc."
+                    }
+                },
+                "-s": {
+                    "descripcion": "Muestra estadísticas en un formato más detallado.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "vmstat -s",
+                        "resultado": "Muestra estadísticas en un formato más detallado."
+                    }
+                },
+                "-n": {
+                    "descripcion": "Especifica la cantidad de actualizaciones y la frecuencia con la que se muestran las estadísticas. El intervalo es en segundos.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "vmstat -n 2 5",
+                        "resultado": "Actualiza las estadísticas cada 2 segundos, mostrando un total de 5 actualizaciones."
+                    }
+                }
+            },
+            "modo_de_uso": "vmstat [-a] [-s] [-n intervalo repeticiones]",
+            "ejemplo": "vmstat -n 2 5",
+            "resultado": "Actualiza las estadísticas cada 2 segundos, mostrando un total de 5 actualizaciones."
+        }
 
           
         

@@ -35,6 +35,290 @@
 
     </main>
 
+    <hr class="container">
+
+    <section class="bash container">
+        <h2>Programación en Bash</h2>
+        <br>
+        <div class="content">
+            <div class="content-nav none">
+                <ul>
+                    <li><a href="#">Shellscript</a></li>
+                    <li><a href="#">Variables</a></li>
+                    <li><a href="#">Comando test</a></li>
+                    <li><a href="#">Estructuras de control</a></li>
+                    <li><a href="#">Menú de opciones</a></li>
+                    <li><a href="#">Shellscript</a></li>
+                    <li><a href="#">Shellscript</a></li>
+                </ul>
+            </div>
+            <div class="content-text">
+                <div class="shellscript">
+                    <h3>¿Cómo crear un shellscript?</h3>
+                    <ol>
+                        <li>Creo un archivo de texto con algún editor: nano, gedit, etc., o incluso touch y después lo abro con un editor. Ejemplo: <b><code>gedit nombre-archivo.sh</code></b> (es importante marcarlo como .sh)</li>
+                        <li>Necesitamos indicar que el intérprete de este archivo sea Bash. Entonces hay que abrir ese archivo (si es que se hizo con touch) y en la primera línea escribir: <b><code>#!/bin/bash</code></b></li>
+                        <li>Luego se escriben distintas sentencias, y se guarda el programa.</li>
+                        <li>Para ejecutarlo, debemos darle permisos de ejecución, y una forma para hacerlo podría ser: <b><code>chmod +x ./nombre-archivo.sh</code></b></li>
+                    </ol>
+                </div>
+                <div class="variables">
+                    <h3>Variables</h3>
+                    <h4>Formas de creación de variables</h4>
+                    <ul>
+                        <li> <u>Asignación directa</u>: <b><code>nombre_variable=contenido</code></b></li>
+                        <li> <u>Sustitución de comandos</u>: el contenido de una variable es la salida de un comando. Hay distintas formas de hacerlo, una de ellas es: <b><code>fecha=`date`</code></b>. Recordar que cuando una variable guarda la salida de un comando, no se actualiza hasta que nosotros lo volvamos a actualizar.</li>
+                        <li> <u>Comando read</u>: lee datos de la entrada (por teclado) y asigna cada campo ingresado (separado por un espacio) a una variable diferente. Ejemplo: Si nosotros ponemos <b><code>read A B C D E</code></b>, el script te va a dejar ingresar por teclado distintos datos; si nosotros ingresamos <i>La flor es bella</i>, cada espacio determina el fin del contenido de una variable y se van a asignar respectivamente, es decir, <i>La</i> va a ser el contenido de <b><code>A</code></b>, <i>flor</i> va a ser el contenido de <b><code>B</code></b>, y así sucesivamente. Si hay más variables que datos, se ignoran; y si hay más datos que variables, se ignoran.</li>
+                    </ul>
+                    <h4>Variables especiales</h4>
+                    <ul>
+                        <li><b><code>$?</code></b>: Almacena el estado de salida del último comando ejecutado.</li>
+                        <li><b><code>$!</code></b>: Contiene el identificador del último proceso que se ejecutó en background.</li>
+                        <li><b><code>$-</code></b>: Contiene las opciones establecidas mediante el comando set.</li>
+                        <li><b><code>$$</code></b>: Contiene el identificador del proceso actual.</li>
+                        <li><b><code>$#</code></b>: Contiene el número de argumentos posicionales pasados al script.</li>
+                        <li><b><code>$0</code></b>: Nombre del shellscript.</li>
+                        <li><b><code>$1, $2, $3, ..., $9</code></b>: Posición de cada argumento posicional pasados al script. Ya a partir del 10 se usa entre paréntesis para no confundir <b><code>$(10)</code></b>, <b><code>$(11)</code></b>, etc.</li>
+                        <li><b><code>$@</code></b>: lista de argumentos posicionales pasados al script.</li>
+                    </ul>
+                    <h4>Variables de entorno de usuario</h4>
+                    <p>Contienen información del entorno del sistema para el usuario que ha iniciado sesión en ese momento.</p>
+                    <ul>
+                        <li><b><code>HOME</code></b>: directorio de usuario que inició sesión.</li>
+                        <li><b><code>SHELL</code></b>: ruta absoluta al intérprete de comandos.</li>
+                        <li><b><code>USER</code></b>: contiene el usuario logeado en la sesión actual.</li>
+                        <li><b><code>PWD</code></b>: ruta absoluta al directorio de trabajo del usuario.</li>
+                        <li><b><code>PATH</code></b>: lista de directorios que el shell examina al buscar ejecutables.</li>
+                        <li><b><code>TERM</code></b>: especifica la terminal por defecto.</li>
+                        <li><b><code>PS1</code></b>: identificador primario del shell (por defecto $).</li>
+                    </ul>
+                    <h4>Uso de variables</h4>
+                    <p>Una vez creada la variable, para usarla le debemos anteponer a su nombre, el símbolo de <b><code>$</code></b>. Por ejemplo:</p>
+                    <pre class="uso-variables">
+                        <code>
+    # Creo la variable
+    variable1=4
+
+    # Uso la variable
+    echo "El valor de la variable1 es: " $variable1     
+                        </code>
+                    </pre>
+                    <p>Podemos aplicar el mismo concepto con las variables de entorno de usuario. Por ejemplo: </p>
+                    <pre class="uso-variables">
+                        <code>
+    echo "La ruta absoluta al directorio de trabajo del usuario es: " $PWD      
+                        </code>
+                    </pre>
+                </div>
+                <div class="test">
+                    <h3>Comando test</h3>
+                    <p>Permite comprobar el valor de una expresión/sentencia devolviendo un 0 si la expresión es verdadera o un 1 si la expresión es falsa.</p>
+                
+                    <h4>Test para validar archivos: <b><code>`test -bandera nombre-archivo`</code></b></h4>
+                    <ul>
+                        <li><b>-e</b>: existe el archivo.</li>
+                        <li><b>-b</b>: es especial de bloque.</li>
+                        <li><b>-c</b>: es especial de caracter.</li>
+                        <li><b>-d</b>: es un directorio.</li>
+                        <li><b>-s</b>: su tamaño es mayor que cero.</li>
+                        <li><b>-f</b>: es un archivo regular.</li>
+                        <li><b>-r</b>: existe y el usuario tiene permiso de lectura.</li>
+                        <li><b>-w</b>: existe y el usuario tiene permiso de escritura.</li>
+                        <li><b>-x</b>: existe y el usuario tiene permiso de ejecución.</li>
+                    </ul>
+
+                    <h4>Test para validar números: <b><code>`test entero1 operador entero2`</code></b></h4>
+                    <ul>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-eq</code></b> numero2`: ambos enteros son iguales</li>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-ne</code></b> numero2`: ambos enteros son distintos</li>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-gt</code></b> numero2`: numero1 es mayor a numero2</li>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-ge</code></b> numero2`: numero1 es mayor o igual a numero2</li>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-lt</code></b> numero2`: numero1 es menor a numero2</li>
+                        <li>`<b><code>test</code></b> numero1 <b><code>-le</code></b> numero2`: numero1 es menor o igual a numero2</li>
+                    </ul>
+                </div>
+                <div class="estructuras">
+                    <h3>Estructuras de control</h3>
+                    <h4>Estructura IF - FI</h4>
+                    <h5>Estructura simple</h5>
+                    <pre>
+                        <code>
+    if sentencia
+    then
+        # si la sentencia es verdadera se ejecuta lo que haya en then    
+        comando 1
+        comando 2
+        ...
+        comando N
+    fi
+                        </code>
+                    </pre>
+                    <h5>Estructura doble</h5>
+                    <pre>
+                        <code>
+    if sentencia
+        then
+            # si la sentencia es verdadera se ejecuta lo que haya en then       
+            comando 1
+            comando 2
+            ...
+            comando N
+        else
+            # si la sentencia es falsa ignora el then y se ejecuta el else      
+            comando 1
+            comando 2
+            ...
+            comando N
+    fi
+                        </code>
+                    </pre>
+                    <h4>Estructura CASE - ESAC</h4>
+                    <pre>
+                        <code>
+    read opcion
+    case $opcion in
+        opcion1&#41;
+            echo "Se ejecutan las funcionalidades de la opción 1."
+            ;;
+        opcion2&#41;
+            echo "Se ejecutan las funcionalidades de la opción 2."
+            ;;
+        *&#41;
+            echo "Se ejecuta lo que queremos que pase en caso de que se ingrese una opción no definida anteriormente."      
+            ;;
+    esac
+                        </code>
+                    </pre>
+                    <h4>Estructura ciclo while</h4>
+                    <pre>
+                        <code>
+    while condicion     
+    do
+        comando 1
+        comando 2
+        ...
+        comando N
+    done
+                        </code>
+                    </pre>
+                    <h4>Estructura ciclo for</h4>
+                    <pre>
+                        <code>
+    for variable in lista_argumentos        
+    do
+        comando 1
+        comando 2
+        ...
+        comando N
+    done
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="operaciones">
+                    <h3>Operaciones aritméticas</h3>
+                    <h4>Usando la palabra reservada <b><code>let</code></b></h4>
+                    <p>Suma, resta, división (cociente y resto) y multiplicación</p>
+                    <pre>
+                        <code>
+    # Para sumar:
+    let r=2+4
+    echo $r
+
+    # Para restar:
+    let r=8-5
+    echo $r
+
+    # Para multiplicar:
+    let r=2*4
+    echo $r
+
+    # Para división entera:
+    let r=9/4
+    echo $r
+
+    # Para obtener el resto de la división:     
+    let r=9%4
+    echo $r
+                        </code>
+                    </pre>
+                    <p>Notar que la división es entera, no arroja resultados decimales.</p>
+                    <h4>Usando el comando <b><code>expr</code></b></h4>
+                    <p>Suma, resta, división (cociente y resto) y multiplicación</p>
+                    <pre>
+                        <code>
+    # Para sumar:
+    r=`expr 2 + 4`
+    echo $r
+    
+    # Para restar:
+    r=`expr 8 - 5`
+    echo $r
+    
+    # Para multiplicar:
+    r=`expr 2 \* 4`
+    echo $r
+    
+    # Para división entera:
+    r=`expr 9 / 4`
+    echo $r
+    
+    # Para obtener el resto de la división:     
+    r=`expr 9 % 4`
+    echo $r
+                        </code>
+                    </pre>
+                    <p>Notar que hay un espacio entre los operadores y operandos, esto es porque cada uno de ellos es un parámetro para el comando expr.</p>
+                    <h4>Usando la construcción <b><code>$(( x op y ))</code></b></h4>
+                    <p>Suma, resta, división (cociente y resto) y multiplicación</p>
+                    <pre>
+                        <code>
+    # Para sumar:
+    r=$((2+4))
+    echo $r
+
+    # Para restar:
+    r=$((8-5))
+    echo $r
+
+    # Para multiplicar:
+    r=$((8*5))
+    echo $r
+
+    # Para división entera:
+    r=$((9/4))
+    echo $r
+
+    # Para obtener el resto de la división:     
+    r=$((9%4))
+    echo $r
+                        </code>
+                    </pre>
+                    <p>Notar que no hace falta el espacio entre los operadores y los operandos.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="container">
+
+    <section class="utilities container">
+        <h2>Tips y Utilidades</h2>
+        <br>
+        <p>Hay algunos comandos que tienen cierta forma de uso la cual se tiene que explicar de manera aparte a la anterior.</p>
+        <div class="content">
+            <div class="content-nav">
+
+            </div>
+            <div class="content-text">
+                
+            </div>
+        </div>
+    </section>
+
+    <hr class="container">
+
     <section class="contact_me container" id="contact_me">
         <form action="https://formsubmit.co/facundoandrean22@gmail.com" method="POST" class="contact_me-form" target="_blank">
             <legend>¿Hay algún error? ¡Házmelo saber!</legend>
