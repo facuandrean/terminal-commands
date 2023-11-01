@@ -94,27 +94,29 @@
                     </ul>
                     <h4>Uso de variables</h4>
                     <p>Una vez creada la variable, para usarla le debemos anteponer a su nombre, el símbolo de <b><code>$</code></b>. Por ejemplo:</p>
-                    <pre class="uso-variables">
+                    <pre class="content-code uso-variables">
                         <code>
     # Creo la variable
     variable1=4
 
     # Uso la variable
-    echo "El valor de la variable1 es: " $variable1     
-                        </code>
+    echo "El valor de la variable1 es: " $variable1</code>
                     </pre>
                     <p>Podemos aplicar el mismo concepto con las variables de entorno de usuario. Por ejemplo: </p>
-                    <pre class="uso-variables">
+                    <pre class="content-code uso-variables">
                         <code>
-    echo "La ruta absoluta al directorio de trabajo del usuario es: " $PWD      
-                        </code>
+    echo "La ruta absoluta al directorio de trabajo del usuario es: " $PWD</code>
                     </pre>
                 </div>
                 <div class="test">
                     <h3>Comando test</h3>
                     <p>Permite comprobar el valor de una expresión/sentencia devolviendo un 0 si la expresión es verdadera o un 1 si la expresión es falsa.</p>
                 
-                    <h4>Test para validar archivos: <b><code>`test -bandera nombre-archivo`</code></b></h4>
+                    <h4>Test para validar archivos: </h4>
+                    <pre class="content-code">
+                        <code>
+    test -bandera nombre-archivo</code>
+                    </pre>
                     <ul>
                         <li><b>-e</b>: existe el archivo.</li>
                         <li><b>-b</b>: es especial de bloque.</li>
@@ -127,21 +129,63 @@
                         <li><b>-x</b>: existe y el usuario tiene permiso de ejecución.</li>
                     </ul>
 
-                    <h4>Test para validar números: <b><code>`test entero1 operador entero2`</code></b></h4>
+                    <h4>Test para validar números: </h4>
+                    <pre class="content-code">
+                        <code>
+    test numero1 operador numero2</code>
+                    </pre>
                     <ul>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-eq</code></b> numero2`: ambos enteros son iguales</li>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-ne</code></b> numero2`: ambos enteros son distintos</li>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-gt</code></b> numero2`: numero1 es mayor a numero2</li>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-ge</code></b> numero2`: numero1 es mayor o igual a numero2</li>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-lt</code></b> numero2`: numero1 es menor a numero2</li>
-                        <li>`<b><code>test</code></b> numero1 <b><code>-le</code></b> numero2`: numero1 es menor o igual a numero2</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-eq</code></b> numero2": ambos enteros son iguales</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-ne</code></b> numero2": ambos enteros son distintos</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-gt</code></b> numero2": numero1 es mayor a numero2</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-ge</code></b> numero2": numero1 es mayor o igual a numero2</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-lt</code></b> numero2": numero1 es menor a numero2</li>
+                        <li>"<b><code>test</code></b> numero1 <b><code>-le</code></b> numero2": numero1 es menor o igual a numero2</li>
                     </ul>
+
+                    <h4>Formas de uso de test.</h4>
+                    <h5>Se puede usar el comando "<code><b>test</b></code>": </h5>
+                    <pre class="content-code">
+                        <code>
+    if test $edad -gt 18; 
+    then
+        echo "Eres mayor de edad."
+    fi</code>
+                    </pre>
+                    <br>
+                    <h5>Se puede usar "<code><b>[ ]</b></code>": </h5>
+                    <pre class="content-code">
+                        <code>
+    if [ $edad -gt 18 ]; 
+    then
+        echo "Eres mayor de edad."
+    fi</code>
+                    </pre>
+                    <p>Notar que test y [ ] se usan para evaluar expresiones condicionales básicas. Son equivalentes pero la forma de los corchetes es más legible.</p>
+                    <br><br>
+
+                    <h5>Se puede usar "<code><b>[[ ]]</b></code>":</h5>
+                    <pre class="content-code">
+                        <code>
+    if [[ $nombre == "Juan" ]]; 
+    then
+        echo "Hola, Juan."
+    fi</code>
+                    </pre>
+                    <p>Notar que [[ ]] proporciona funcionalidades adicionales. Es más flexible y puede manejar expresiones más complejas. Se pueden realizar comparaciones de cadenas sin preocuparte por la expansión de comodines.</p>
+                    <pre class="content-code">
+                        <code>
+    if [[ $edad -gt 18 && $ciudad = "Barcelona" ]]; 
+    then
+        echo "Mayor de edad y vive en Barcelona."
+    fi</code>
+                    </pre>
                 </div>
                 <div class="estructuras">
                     <h3>Estructuras de control</h3>
                     <h4>Estructura IF - FI</h4>
                     <h5>Estructura simple</h5>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     if sentencia
     then
@@ -150,11 +194,10 @@
         comando 2
         ...
         comando N
-    fi
-                        </code>
+    fi</code>
                     </pre>
                     <h5>Estructura doble</h5>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     if sentencia
         then
@@ -169,11 +212,10 @@
             comando 2
             ...
             comando N
-    fi
-                        </code>
+    fi</code>
                     </pre>
                     <h4>Estructura CASE - ESAC</h4>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     read opcion
     case $opcion in
@@ -186,11 +228,10 @@
         *&#41;
             echo "Se ejecuta lo que queremos que pase en caso de que se ingrese una opción no definida anteriormente."      
             ;;
-    esac
-                        </code>
+    esac</code>
                     </pre>
                     <h4>Estructura ciclo while</h4>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     while condicion     
     do
@@ -198,11 +239,10 @@
         comando 2
         ...
         comando N
-    done
-                        </code>
+    done</code>
                     </pre>
                     <h4>Estructura ciclo for</h4>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     for variable in lista_argumentos        
     do
@@ -210,16 +250,15 @@
         comando 2
         ...
         comando N
-    done
-                        </code>
+    done</code>
                     </pre>
                 </div>
 
                 <div class="operaciones">
                     <h3>Operaciones aritméticas</h3>
-                    <h4>Usando la palabra reservada <b><code>let</code></b></h4>
+                    <h4>Usando la palabra reservada "<code><b>let</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     # Para sumar:
     let r=2+4
@@ -239,13 +278,12 @@
 
     # Para obtener el resto de la división:     
     let r=9%4
-    echo $r
-                        </code>
+    echo $r</code>
                     </pre>
                     <p>Notar que la división es entera, no arroja resultados decimales.</p>
-                    <h4>Usando el comando <b><code>expr</code></b></h4>
+                    <h4>Usando el comando "<code><b>expr</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     # Para sumar:
     r=`expr 2 + 4`
@@ -265,13 +303,12 @@
     
     # Para obtener el resto de la división:     
     r=`expr 9 % 4`
-    echo $r
-                        </code>
+    echo $r</code>
                     </pre>
                     <p>Notar que hay un espacio entre los operadores y operandos, esto es porque cada uno de ellos es un parámetro para el comando expr.</p>
-                    <h4>Usando la construcción <b><code>$(( x op y ))</code></b></h4>
+                    <h4>Usando la construcción "<code><b>$(( x op y ))</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
-                    <pre>
+                    <pre class="content-code">
                         <code>
     # Para sumar:
     r=$((2+4))
@@ -291,8 +328,7 @@
 
     # Para obtener el resto de la división:     
     r=$((9%4))
-    echo $r
-                        </code>
+    echo $r</code>
                     </pre>
                     <p>Notar que no hace falta el espacio entre los operadores y los operandos.</p>
                 </div>

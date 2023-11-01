@@ -398,6 +398,11 @@ hr {
     font-size: 1.15rem;
 }
 
+.content-text h5 {
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
 .variables h3 {
     margin-bottom: 0;
 }
@@ -406,18 +411,14 @@ hr {
     font-size: 1rem;
 }
 
-.estructuras pre,
-.variables pre,
-.operaciones pre {
+.content-code {
     background-color: rgb(31, 30, 30);
     color: #fff;
     overflow-x: auto;
     border-radius: .5rem;
 }
 
-.estructuras code,
-.uso-variables code,
-.operaciones code {
+.content-code code {
     font-size: .8rem;
 }
 
@@ -425,23 +426,17 @@ hr {
     font-size: 1rem;
 }
 
-.estructuras pre::-webkit-scrollbar,
-.variables pre::-webkit-scrollbar,
-.operaciones pre::-webkit-scrollbar{
+.content-code::-webkit-scrollbar{
     height: 10px;
 }
 
-.estructuras pre::-webkit-scrollbar-thumb,
-.variables pre::-webkit-scrollbar-thumb,
-.operaciones pre::-webkit-scrollbar-thumb {
+.content-code::-webkit-scrollbar-thumb {
     background: rgb(63, 63, 63);
     border-radius: .5rem;
 
 }
 
-.estructuras pre::-webkit-scrollbar-track,
-.variables pre::-webkit-scrollbar-track,
-.operaciones pre::-webkit-scrollbar-track {
+.content-code ::-webkit-scrollbar-track {
     background: black;
     border-radius: .5rem;
 }
@@ -459,6 +454,17 @@ hr {
 }
 
 @media screen and (min-width:1024px) {
-        
+
+    .shellscript code,
+    .variables code,
+    .test ul code {
+        font-size: 1.15rem;
+    }
+
+    .content-code code {
+        font-size: 1rem;
+    }
+
+
 }
 
