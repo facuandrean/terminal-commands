@@ -399,11 +399,130 @@
         <br>
         <p>Hay algunos comandos que tienen cierta forma de uso la cual se tiene que explicar de manera aparte a la anterior.</p>
         <div class="content">
-            <div class="content-nav">
+            <div class="content-nav none">
 
             </div>
             <div class="content-text">
-                
+                <div class="process-information">
+                    <h3>Procesos.</h3>
+                    <h4>Información de los procesos al usar el comando "<code><b>ps -e</b></code>".</h4>
+                    <pre class="content-code">
+                        <code>
+    F       |    S    |     UID     |   PID    |  PPID    |      C      |    PRI    |     NI     |    ADDR     |     SZ     |   WCHAN   |    TTY    |   TIME   |  CMD
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Flags   | Estados | Usuario     | ID del   | ID del   | Uso del     | Prioridad | Cambio de  | Dirección   | Tamaño del | Cambio de |  Terminal |  Tiempo  | Comando      
+                      | que lanzó   | proceso. | proceso  | procesador. |           | prioridad. | de memoria. | proceso.   | contexto. |
+                      | el proceso. |            padre.</code>
+                    </pre>
+                    <h4>Estados de un proceso en linux.</h4>
+                    <pre class="content-code">
+                        <code>
+    ID  |   Estado   | Descripción
+    ----------------------------------------------------------------------------------------------
+    S   | Sleep      | Suspendido. Con espera interrumpible (esperando que se complete un evento).      
+        |            | Puede ser interrumpido por alguna señal.
+    ----------------------------------------------------------------------------------------------
+    D   | Sleep      | Suspendido. Con espera no interrumpible. (Generalmente espeando E/S).
+    ----------------------------------------------------------------------------------------------
+    T   | Stopped    | Detenido. Ha recibido una señal de detención.
+    ----------------------------------------------------------------------------------------------
+    R   | Running    | En ejecución. Solo existe un proceso utilizando la CPU que puede estar en
+        |            | 2 modos:
+        |            |     - Modo user: ejecuta instrucciones del programa de usuario.
+        |            |     - Modo kernel: ejecuta instrucciones del kernel (llamadas al S.O.).
+    ----------------------------------------------------------------------------------------------
+    Z   | Zombie     | El proceso ha terminado pero no está muerto porque su estructura 
+        |            | task_struct permanece referenciada desde el vector task. Es un proceso que
+        |            | aún tiene dependencias.
+    ----------------------------------------------------------------------------------------------
+    X   | Dead       | Muerto (nunca debe ser visto).</code>
+                    </pre>
+                    <h4>Prioridades de procesos.</h4>
+                    <p>2 conceptos importantes: la prioridad PRI, es manejada por el kernel, y el valor nice (NI), es manejado por el usuario.</p>
+                    <br>
+                    <p>Fórmula de cálculo: PRI = 20 + NI  donde NI >= -20 y NI <= 19.</p>
+                    <br>
+                    <p>Mientras más chico el NI, más prioridad va a tener ese proceso.</p>
+                    <br>
+                    <p>Podemos ver estas columnas con el comando <code><b>ps -l</b></code> o <code><b>ps -el</b></code>.</p>
+                    <br>
+                    <p>Reiteramos: Al valor de PRI lo asigna el kernel al proceso (80 es el estándar), y al valor de NI lo modifica el usuario.</p>
+                </div>
+                <div class="order-lines">
+                    <h3>Agrupación de comandos que se pueden ejecutar en forma:</h3>
+                    <h4>Secuencial</h4>
+                    <h5>Se hace con el símbolo: <b>;</b></h5>
+                    <pre class="content-code">
+                        <code>
+    orden 1; orden 2; orden 3; ...; orden N     </code>
+                    </pre>
+                    <h4>Condicional</h4>
+                    <h5>Conectivo OR: <b>||</b></h5>
+                    <pre class="content-code">
+                        <code>
+    Ej: orden 1 || orden 2 -> mkdir dire1 || echo "No se pudo crear la carpeta dire1"       </code>
+                    </pre>
+                    <h5>Conectivo AND: <b>&&</b></h5>
+                    <pre class="content-code">
+                        <code>
+    Ej: orden 1 && orden 2 -> si no se ejecuta la primer orden, tampoco la segunda.     </code>
+                    </pre>
+                    <h4>Grupo de órdenes</h4>
+                    <h5>Podemos agrupar órdenes con el símbolo <b>;</b> y con los paréntesis <b>( )</b></h5>
+                    <pre class="content-code">
+                        <code>
+    (ls /; pwd; who) > listado      </code>
+                    </pre>
+                    <h4>Tuberías o pipelines</h4>
+                    <h5>Se hace con el símbolo: <b>|</b></h5>
+                    <pre class="content-code">
+                        <code>
+    orden 1 | orden 2 | orden 3 -> la salida de cada orden, se usa o se puede usar en la siguiente.</code>
+                    </pre>
+                </div>
+                <div class="crontab">
+                    <h3>Forma de usar el comando Crontab.</h3>
+                    <p>El comando crontab permite ejecutar tareas recurrentes.</p>
+                    <br>
+                    <p>Para usarlo, debemos ejecutar en la línea de comandos: <code><b>crontab -e</b></code>.</p>
+                    <br>
+                    <p>Si es la primera vez, podemos elegir un editor para hacer que se abra.</p>
+                    <br>
+                    <p>Una vez abierto, nos permite guardar en un archivo los distintos comandos que queremos que se ejecuten cada cierto tiempo.</p>
+                    <br>
+                    <p>Podemos leer su documentación, pero se resume a esto: </p>
+                    <pre class="content-code">
+                        <code>
+    parámetro1 parámetro2 parámetro3 parámetro4 parámetro5 comando/s-a-ejecutar         </code>
+                    </pre>
+                    <ul>
+                        <li><u>Primer parámetro</u>: significa cada cuántos minutos se va a ejecutar. Los valores posibles son 0-59.</li>
+                        <li><u>Segundo parámetro</u>: significa cada cuántas horas se va a ejecutar. Los valores posibles son 0-23.</li>
+                        <li><u>Tercer parámetro</u>: significa el día del mes en que se va a ejecutar. Los valores posibles son 0-31.</li>
+                        <li><u>Cuarto parámetro</u>: significa el numero del mes del año en que se va a ejecutar. Los valores posibles son 1-12.</li>
+                        <li><u>Quinto parámetro</u>: significa el dia de la semana en que se va a ejecutar. Los valores posibles son 0-7 (siendo 0 y 7 el día domingo).</li>
+                    </ul>
+                    <br>
+                    <p>Los valores de cada parámetro se pueden reemplazar por un aterisco <b>*</b>, el cual significa que se va a ejecutar cada valor de ese rango.</p>
+                    <br>
+                    <h5>Ejemplo: </h5>
+                    <pre class="content-code">
+                        <code>
+    10 * * * * ps -> la tarea se va a ejecutar a los 10 minutos de cada hora de cualquier día del año.      
+    10 3 15 * * ls -li -> la tarea se ejecuta a las 3:10 del día 15 de cada mes.
+    10 3 * * 1 top -> la tarea se ejecuta a las 3:10 de los días lunes.</code>
+                    </pre>
+                    <h5>Una notación especial para aclarar, es que si agregamos la barra <b>/</b> durante un parámetro, indica que se ejecuta <b>cada</b> cierto tiempo.</h5>
+                    <pre class="content-code">
+                        <code>
+    */10 * * * * ls -l / -> la tarea se ejecuta cada 10 minutos de cada hora, de cada día, etc.</code>
+                    </pre>
+                    <h5>Otra notación especial para aclarar es que si agregamos una coma durante un parámetro, la tarea se ejecuta en esos tiempos. Es como si fuese un "y".</h5>
+                    <pre class="content-code">
+                        <code>
+    0 2,3 * * * ls -l / -> la tarea se ejecuta a las 2 am y a las 3 am (porque el horario es de 24hs).      </code>
+                    </pre>
+                </div>
             </div>
         </div>
     </section>
