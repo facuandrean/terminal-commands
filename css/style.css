@@ -206,6 +206,7 @@ body {
 .command-card {
     width: 100%;
     margin-bottom: 1rem;
+    margin: 0 auto 1rem auto;
 }
 
 .command-card:last-child {
@@ -213,10 +214,11 @@ body {
 }
 
 .command-card-title {
-    width: 100%;
+    width:70%;
     height: 100%;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     cursor: pointer;
     padding: .5rem 0rem;
@@ -224,10 +226,11 @@ body {
 
 .command-card-title h3 {
     font-weight: 500;
+    width: 100%;
 }
 
 .command-card-title i {
-    margin-left: 2rem;
+    width: 100%;
     transition: all .5s ease;
 }
 
@@ -359,13 +362,32 @@ hr {
 }
 
 .content-nav {
-    width: 15%;
-    height: 100%;
+    width: 25%;
+    height: 100vh;
     padding: 0rem .5rem;
+    border: 1px solid red;
+    position: sticky;
+    top: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    overflow-y: auto;
+}
+
+.content-nav ul {
+    padding: .8rem 0rem;
+}
+
+.content-nav > ul > li {
+    margin-bottom: .5rem;
+}
+
+.content-nav li {
+    list-style: circle;
+    margin: 0rem 0rem .1rem 1rem;
 }
 
 .content-text {
-    width: 100%;
+    width: 75%;
     height: auto;
     padding: 0rem 1.5rem;
 }
@@ -461,6 +483,17 @@ hr {
 }
 
 @media screen and (min-width:1024px) {
+    
+    .command-card-title {
+        width: 25%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        padding: .5rem 0rem;
+    }
 
     .shellscript code,
     .variables code,
@@ -475,3 +508,8 @@ hr {
 
 }
 
+@media screen and (min-width:2560px) {
+    .container {
+        max-width: 1280px;
+    }
+}

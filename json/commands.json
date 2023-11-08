@@ -1829,6 +1829,64 @@
             "modo_de_uso": "vmstat [-a] [-s] [-n intervalo repeticiones]",
             "ejemplo": "vmstat -n 2 5",
             "resultado": "Actualiza las estadísticas cada 2 segundos, mostrando un total de 5 actualizaciones."
+        },
+        "test": {
+            "comando": "test",
+            "nombre": "Test",
+            "descripcion": "Comando utilizado para evaluar expresiones condicionales en scripts de shell.",
+            "banderas": {
+                "e": {
+                    "descripcion": "Comprueba si la expresión es verdadera.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -e archivo.txt",
+                        "resultado": "Verifica si el archivo.txt existe."
+                    }
+                },
+                "f": {
+                    "descripcion": "Comprueba si el archivo existe y es un archivo regular.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -f archivo.txt",
+                        "resultado": "Verifica si archivo.txt es un archivo regular."
+                    }
+                },
+                "d": {
+                    "descripcion": "Comprueba si el directorio existe.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -d carpeta",
+                        "resultado": "Verifica si la carpeta es un directorio existente."
+                    }
+                },
+                "r": {
+                    "descripcion": "Comprueba si el archivo tiene permisos de lectura.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -r archivo.txt",
+                        "resultado": "Verifica si se pueden leer los contenidos de archivo.txt."
+                    }
+                },
+                "w": {
+                    "descripcion": "Comprueba si el archivo tiene permisos de escritura.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -w archivo.txt",
+                        "resultado": "Verifica si se pueden escribir datos en archivo.txt."
+                    }
+                },
+                "x": {
+                    "descripcion": "Comprueba si el archivo tiene permisos de ejecución.",
+                    "ejemplo": {
+                        "uso": "Ejemplo de uso de la bandera:",
+                        "comando": "test -x script.sh",
+                        "resultado": "Verifica si script.sh puede ejecutarse."
+                    }
+                }
+            },
+            "modo_de_uso": "test [bandera] [archivo/directorio]",
+            "ejemplo": "test -e archivo.txt",
+            "resultado": "Este comando retornará verdadero (0) si la expresión es verdadera, o falso (1) si es falsa."
         }
 
           
