@@ -100,10 +100,14 @@ h1, h2, h3, h4, h5, h6, p {
     order: 1;
 }
 
+.content-nav a.active {
+    color: rgb(255, 255, 255) /* Cambia el color al que prefieras */
+}
+
 /* Site properties */
 
 html::-webkit-scrollbar {
-    width: 5px;
+    width: 10px;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -266,78 +270,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.contact_me {
-    margin: 3rem auto;
-    padding: 1rem;
-}
-
-.contact_me form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-}
-
-.contact_me legend {
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin: 0 auto 1rem auto;
-    text-align: center;
-}
-
-.contact_me input {
-    width: 100%;
-    margin-bottom: .5rem;
-    padding: .5rem;
-    background-color: transparent !important;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #0a4ccf;
-}
-
-.contact_me textarea {
-    resize: none;
-    width: 100%;
-    padding: .5rem;
-    margin-bottom: .5rem;
-    background-color: transparent !important;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #0a4ccf;
-}
-
-.contact_me input,
-.contact_me textarea {
-    background-color: transparent !important;
-    -webkit-background-clip: text;
-    background-clip: text;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #0a4ccf;
-}
-
-.contact_me input::placeholder,
-.contact_me textarea::placeholder {
-    color: black;
-}
-
-
-.contact_me input[type="submit"] {
-    width: 30%;
-    margin-bottom: 0;
-    cursor: pointer;
-    background-color: transparent !important;
-    border: 2px solid #0a4ccf;
-    transition: all .5s ease;
-}
-
-.contact_me input[type="submit"]:hover {
-    opacity: .7;
-}
-
 hr {
     border-color: #0a4ccf40;
 }
@@ -364,8 +296,7 @@ hr {
 .content-nav {
     width: 25%;
     height: 100vh;
-    padding: 0rem .5rem;
-    border: 1px solid red;
+    padding: 1rem .5rem;
     position: sticky;
     top: 0;
     font-size: 1rem;
@@ -447,8 +378,9 @@ hr {
     font-size: .8rem;
 }
 
-.operaciones h4 code {
-    font-size: 1rem;
+.content-text h4 code,
+.content-text p code {
+    font-size: 1.15rem;
 }
 
 .content-code::-webkit-scrollbar{
@@ -469,6 +401,78 @@ hr {
 .utilities > p {
     margin: 0rem 1rem 
 }
+
+.contact_me {
+    margin: 3rem auto;
+    padding: 1rem;
+}
+
+.contact_me form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.contact_me h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+}
+
+.contact_me input {
+    width: 100%;
+    margin-bottom: .5rem;
+    padding: .5rem;
+    background-color: transparent !important;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0a4ccf;
+}
+
+.contact_me textarea {
+    resize: none;
+    width: 100%;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    background-color: transparent !important;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0a4ccf;
+}
+
+.contact_me input,
+.contact_me textarea {
+    background-color: transparent !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #0a4ccf;
+}
+
+.contact_me input::placeholder,
+.contact_me textarea::placeholder {
+    color: black;
+}
+
+.contact_me input[type="submit"] {
+    width: 30%;
+    margin-bottom: 0;
+    cursor: pointer;
+    background-color: transparent !important;
+    border: 2px solid #0a4ccf;
+    transition: all .5s ease;
+}
+
+.contact_me input[type="submit"]:hover {
+    opacity: .7;
+}
+
 
 /* Mediaqueries */
 

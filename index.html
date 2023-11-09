@@ -28,23 +28,30 @@
         <h1>Comandos de linux</h1>
         <br>
         <h3>Buscar comandos...</h3>
-        <input type="search" name="" id="search-command" placeholder="Ingrese el comando a buscar">
+        <input type="search" id="search-command" placeholder="Ingrese el comando a buscar">
     </aside>
 
-    <main class="main container">
-
-    </main>
+    <main class="main container"></main>
 
     <hr class="container">
 
     <section class="bash container">
+
         <h2>Programación en Bash</h2>
+
         <br>
+
         <div class="content">
-            <div class="content-nav none">
-                <ul>
+
+            <div class="content-nav none scroll-spy">
+
+                <div>
                     
-                    <li><a href="#shellscript">Shellscript</a></li>
+                    <a href="#shellscript">Shellscript</a>
+
+                    <br>
+                    <br>
+
                     <a href="#variables">Variables</a>
                     <ul>
                         <li><a href="#variables-creation">Formas de crear variables</a></li>
@@ -72,11 +79,13 @@
                         <li><a href="#arithmetic-operations-simbols">Usando $(())</a></li>
                     </ul>
                     <a href="#options-menu">Menú de opciones</a>
-                </ul>
+                </div>
+
             </div>
+
             <div class="content-text">
                 <div class="shellscript">
-                    <h3 id="shellscript">¿Cómo crear un shellscript?</h3>
+                    <h3 id="shellscript" class="title">¿Cómo crear un shellscript?</h3>
 
                     <ol>
                         <li>Creo un archivo de texto con algún editor: nano, gedit, etc., o incluso touch y después lo abro con un editor. Ejemplo: <code><b>gedit nombre-archivo.sh</b></code> (es importante marcarlo como .sh)</li>
@@ -88,16 +97,16 @@
 
 
                 <div class="variables">
-                    <h3 id="variables">Variables</h3>
+                    <h3 id="variables" class="title">Variables</h3>
 
-                    <h4 id="variables-creation">Formas de creación de variables</h4>
+                    <h4 id="variables-creation" class="title">Formas de creación de variables</h4>
                     <ul>
                         <li> <u>Asignación directa</u>: <code><b>nombre_variable=contenido</b></code></li>
                         <li> <u>Sustitución de comandos</u>: el contenido de una variable es la salida de un comando. Hay distintas formas de hacerlo, una de ellas es: <code><b>fecha=`date`</b></code>. Recordar que cuando una variable guarda la salida de un comando, no se actualiza hasta que nosotros lo volvamos a actualizar.</li>
                         <li> <u>Comando read</u>: lee datos de la entrada (por teclado) y asigna cada campo ingresado (separado por un espacio) a una variable diferente. Ejemplo: Si nosotros ponemos <code><b>read A B C D E</b></code>, el script te va a dejar ingresar por teclado distintos datos; si nosotros ingresamos <i>La flor es bella</i>, cada espacio determina el fin del contenido de una variable y se van a asignar respectivamente, es decir, <i>La</i> va a ser el contenido de <code><b>A</b></code>, <i>flor</i> va a ser el contenido de <code><b>B</b></code>, y así sucesivamente. Si hay más variables que datos, se ignoran; y si hay más datos que variables, se ignoran.</li>
                     </ul>
                     
-                    <h4 id="special-variables">Variables especiales</h4>
+                    <h4 id="special-variables" class="title">Variables especiales</h4>
                     <ul>
                         <li><code><b> $? </b></code>: Almacena el estado de salida del último comando ejecutado.</li>
                         <li><code><b> $! </b></code>: Contiene el identificador del último proceso que se ejecutó en background.</li>
@@ -109,7 +118,7 @@
                         <li><code><b> $@ </b></code>: lista de argumentos posicionales pasados al script.</li>
                     </ul>
 
-                    <h4 id="user-environment-variables">Variables de entorno de usuario</h4>
+                    <h4 id="user-environment-variables" class="title">Variables de entorno de usuario</h4>
                     <p>Contienen información del entorno del sistema para el usuario que ha iniciado sesión en ese momento.</p>
                     <ul>
                         <li><code><b>HOME</b></code>: directorio de usuario que inició sesión.</li>
@@ -121,7 +130,7 @@
                         <li><code><b>PS1</b></code>: identificador primario del shell (por defecto $).</li>
                     </ul>
 
-                    <h4 id="variable-usage">Uso de variables</h4>
+                    <h4 id="variable-usage" class="title">Uso de variables</h4>
                     <p>
                         Una vez creada la variable, para usarla le debemos anteponer a su nombre, el símbolo de <code><b>$</b></code>. Por ejemplo:
                     </p>
@@ -143,10 +152,10 @@
 
 
                 <div class="test">
-                    <h3 id="test">Comando test</h3>
+                    <h3 id="test" class="title">Comando test</h3>
                     <p>Permite comprobar el valor de una expresión/sentencia devolviendo un 0 si la expresión es verdadera o un 1 si la expresión es falsa.</p>
                 
-                    <h4 id="test-validate-files">Test para validar archivos: </h4>
+                    <h4 id="test-validate-files" class="title">Test para validar archivos: </h4>
                     <pre class="content-code">
                         <code>
     test -bandera nombre-archivo</code>
@@ -163,7 +172,7 @@
                         <li><b> -x </b>: existe y el usuario tiene permiso de ejecución.</li>
                     </ul>
 
-                    <h4 id="test-validate-numbers">Test para validar números: </h4>
+                    <h4 id="test-validate-numbers" class="title">Test para validar números: </h4>
                     <pre class="content-code">
                         <code>
     test numero1 operador numero2</code>
@@ -177,7 +186,7 @@
                         <li>"<code><b>test</b></code> numero1 <code><b> -le </b></code> numero2": numero1 es menor o igual a numero2</li>
                     </ul>
 
-                    <h4 id="ways-use-test">Formas de uso de test.</h4>
+                    <h4 id="ways-use-test" class="title">Formas de uso de test.</h4>
                     <h5>Se puede usar el comando "<code><b>test</b></code>": </h5>
                     <pre class="content-code">
                         <code>
@@ -217,8 +226,8 @@
                 </div>
                 
                 <div class="structures">
-                    <h3 id="control-structures">Estructuras de control</h3>
-                    <h4 id="if-fi-structure">Estructura IF - FI</h4>
+                    <h3 id="control-structures" class="title">Estructuras de control</h3>
+                    <h4 id="if-fi-structure" class="title">Estructura IF - FI</h4>
 
                     <h5>Estructura simple</h5>
                     <pre class="content-code">
@@ -252,7 +261,7 @@
     fi</code>
                     </pre>
 
-                    <h4 id="case-esac-structure">Estructura CASE - ESAC</h4>
+                    <h4 id="case-esac-structure" class="title">Estructura CASE - ESAC</h4>
                     <pre class="content-code">
                         <code>
     read opcion
@@ -269,7 +278,7 @@
     esac</code>
                     </pre>
 
-                    <h4 id="while-loop">Estructura ciclo while</h4>
+                    <h4 id="while-loop" class="title">Estructura ciclo while</h4>
                     <pre class="content-code">
                         <code>
     while condicion     
@@ -281,7 +290,7 @@
     done</code>
                     </pre>
 
-                    <h4 id="for-loop">Estructura ciclo for</h4>
+                    <h4 id="for-loop" class="title">Estructura ciclo for</h4>
                     <pre class="content-code">
                         <code>
     for variable in lista_argumentos        
@@ -294,9 +303,9 @@
                     </pre>
                 </div>
 
-                <div class="operaciones">
-                    <h3 id="arithmetic-operations">Operaciones aritméticas</h3>
-                    <h4 id="arithmetic-operations-let">Usando la palabra reservada "<code><b>let</b></code>"</h4>
+                <div class="operations">
+                    <h3 id="arithmetic-operations" class="title">Operaciones aritméticas</h3>
+                    <h4 id="arithmetic-operations-let" class="title">Usando la palabra reservada "<code><b>let</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
                     <pre class="content-code">
                         <code>
@@ -330,7 +339,7 @@
                     </pre>
                     <p>Notar que la división es entera, no arroja resultados decimales.</p>
 
-                    <h4 id="arithmetic-operations-expr">Usando el comando "<code><b>expr</b></code>"</h4>
+                    <h4 id="arithmetic-operations-expr" class="title">Usando el comando "<code><b>expr</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
                     <pre class="content-code">
                         <code>
@@ -364,7 +373,7 @@
                     </pre>
                     <p>Notar que hay un espacio entre los operadores y operandos, esto es porque cada uno de ellos es un parámetro para el comando expr.</p>
 
-                    <h4 id="arithmetic-operations-simbols">Usando la construcción "<code><b>$(( x op y ))</b></code>"</h4>
+                    <h4 id="arithmetic-operations-simbols" class="title">Usando la construcción "<code><b>$(( x op y ))</b></code>"</h4>
                     <p>Suma, resta, división (cociente y resto) y multiplicación</p>
                     <pre class="content-code">
                         <code>
@@ -400,7 +409,7 @@
                 </div>
 
                 <div class="menu-opciones">
-                    <h3 id="options-menu">Menú de opciones</h3>
+                    <h3 id="options-menu" class="title">Menú de opciones</h3>
                     <pre class="content-code">
                         <code>
     #!/bin/bash
@@ -432,22 +441,51 @@
             </div>
 
         </div>
+
     </section>
 
     <hr class="container">
 
     <section class="utilities container">
+
         <h2>Tips y Utilidades</h2>
+
         <br>
+
         <p>Hay algunos comandos que tienen cierta forma de uso o que brindan cierta información, la cual se tiene que explicar de manera aparte a la anterior.</p>
+
         <div class="content">
+
             <div class="content-nav">
 
+                <div>
+                    <a href="#process">Procesos</a>
+                    <ul>
+                        <li><a href="#command-ps-e">Comando "ps -e"</a></li>
+                        <li><a href="#process-status">Estados de un proceso</a></li>
+                        <li><a href="#priorities">Prioridades</a></li>
+                    </ul>
+
+                    <a href="#order-lines">Agrupación de comandos</a>
+                    <ul>
+                        <li><a href="#sequential">Secuencial</a></li>
+                        <li><a href="#conditional">Condicional</a></li>
+                        <li><a href="#order-group">Grupo de órdenes</a></li>
+                        <li><a href="#pipelines">Pipelines</a></li>
+                    </ul>
+
+                    <a href="#crontab">Crontab</a>
+                </div>
+
             </div>
+
             <div class="content-text">
+
                 <div class="process-information">
-                    <h3>Procesos.</h3>
-                    <h4>Información de los procesos al usar el comando "<code><b>ps -e</b></code>".</h4>
+
+                    <h3 id="process" class="title">Procesos.</h3>
+
+                    <h4 id="command-ps-e" class="title">Información de los procesos al usar el comando "<code><b>ps -e</b></code>".</h4>
                     <pre class="content-code">
                         <code>
     F       |    S    |     UID     |   PID    |  PPID    |      C      |    PRI    |     NI     |    ADDR     |     SZ     |   WCHAN   |    TTY    |   TIME   |  CMD
@@ -456,7 +494,8 @@
                       | que lanzó   | proceso. | proceso  | procesador. |           | prioridad. | de memoria. | proceso.   | contexto. |
                       | el proceso. |            padre.</code>
                     </pre>
-                    <h4>Estados de un proceso en linux.</h4>
+
+                    <h4 id="process-status" class="title">Estados de un proceso en linux.</h4>
                     <pre class="content-code">
                         <code>
     ID  |   Estado   | Descripción
@@ -479,51 +518,70 @@
     ----------------------------------------------------------------------------------------------
     X   | Dead       | Muerto (nunca debe ser visto).</code>
                     </pre>
-                    <h4>Prioridades de procesos.</h4>
-                    <p>2 conceptos importantes: la prioridad PRI, es manejada por el kernel, y el valor nice (NI), es manejado por el usuario.</p>
+
+                    <h4 id="priorities" class="title">Prioridades de procesos.</h4>
+                    <p> - 2 conceptos importantes: la prioridad <i><b>PRI</b></i>, es manejada por el <u>kernel</u>, y el valor de <i><b>NI</b></i> (nice), es manejado por el <u>usuario</u>.</p>
+
                     <br>
-                    <p>Fórmula de cálculo: PRI = 20 + NI  donde NI >= -20 y NI <= 19.</p>
+
+                    <p> - <b>Fórmula de cálculo</b>: <u>PRI = 20 + NI  donde NI &#62;= -20 y NI &#60;= 19</u>.</p>
+
                     <br>
-                    <p>Mientras más chico el NI, más prioridad va a tener ese proceso.</p>
+                    
+                    <p> - Mientras más chico el NI, más prioridad va a tener ese proceso.</p>
+                    
                     <br>
-                    <p>Podemos ver estas columnas con el comando <code><b>ps -l</b></code> o <code><b>ps -el</b></code>.</p>
+                    
+                    <p> - Podemos ver estas columnas con el comando <code><b>ps -l</b></code> o <code><b>ps -el</b></code>.</p>
+                    
                     <br>
-                    <p>Reiteramos: Al valor de PRI lo asigna el kernel al proceso (80 es el estándar), y al valor de NI lo modifica el usuario.</p>
+                    
+                    <p> - Reiteramos: Al valor de PRI lo asigna el kernel al proceso (80 es el estándar), y al valor de NI lo modifica el usuario.</p>
+
                 </div>
+
                 <div class="order-lines">
-                    <h3>Agrupación de comandos que se pueden ejecutar en forma:</h3>
-                    <h4>Secuencial</h4>
+
+                    <h3 id="order-lines" class="title">Agrupación de comandos que se pueden ejecutar en forma:</h3>
+
+                    <h4 id="sequential" class="title">Secuencial</h4>
                     <h5>Se hace con el símbolo: <b>;</b></h5>
                     <pre class="content-code">
                         <code>
     orden 1; orden 2; orden 3; ...; orden N     </code>
                     </pre>
-                    <h4>Condicional</h4>
+
+                    <h4 id="conditional" class="title">Condicional</h4>
+
                     <h5>Conectivo OR: <b>||</b></h5>
                     <pre class="content-code">
                         <code>
     Ej: orden 1 || orden 2 -> mkdir dire1 || echo "No se pudo crear la carpeta dire1"       </code>
                     </pre>
+
                     <h5>Conectivo AND: <b>&&</b></h5>
                     <pre class="content-code">
                         <code>
     Ej: orden 1 && orden 2 -> si no se ejecuta la primer orden, tampoco la segunda.     </code>
                     </pre>
-                    <h4>Grupo de órdenes</h4>
+
+                    <h4 id="order-group" class="title">Grupo de órdenes</h4>
                     <h5>Podemos agrupar órdenes con el símbolo <b>;</b> y con los paréntesis <b>( )</b></h5>
                     <pre class="content-code">
                         <code>
     (ls /; pwd; who) > listado      </code>
                     </pre>
-                    <h4>Tuberías o pipelines</h4>
+
+                    <h4 id="pipelines" class="title">Tuberías o pipelines</h4>
                     <h5>Se hace con el símbolo: <b>|</b></h5>
                     <pre class="content-code">
                         <code>
     orden 1 | orden 2 | orden 3 -> la salida de cada orden, se usa o se puede usar en la siguiente.</code>
                     </pre>
                 </div>
+
                 <div class="crontab">
-                    <h3>Forma de usar el comando Crontab.</h3>
+                    <h3 id="crontab" class="title">Forma de usar el comando Crontab.</h3>
                     <p>El comando crontab permite ejecutar tareas recurrentes.</p>
                     <br>
                     <p>Para usarlo, debemos ejecutar en la línea de comandos: <code><b>crontab -e</b></code>.</p>
@@ -572,8 +630,8 @@
     <hr class="container">
 
     <section class="contact_me container" id="contact_me">
+        <h2>¿Hay algún error? ¡Házmelo saber!</h2>
         <form action="https://formsubmit.co/facundoandrean22@gmail.com" method="POST" class="contact_me-form" target="_blank">
-            <legend>¿Hay algún error? ¡Házmelo saber!</legend>
             <input type="text" name="subject" placeholder="¿Añadir o corregir comando?..." title="El asunto es requerido" required>
             <!-- <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required> -->
             <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail: example@example.com" pattern="^[a-zA-Z0-9\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
