@@ -3,6 +3,7 @@ import { fetchData } from "./fetch.js"
 import { search } from "./search.js"
 import { viewport } from "./viewport.js";
 import { scrollSpy } from "./scroll-spy.js";
+import { btnUp } from "./btn-up.js";
 
 const d = document;
 const w = window;
@@ -15,6 +16,7 @@ d.addEventListener("DOMContentLoaded", () => {
     search();
     viewport();
     scrollSpy();
+    btnUp();
 });
 
 w.addEventListener("resize", () => {

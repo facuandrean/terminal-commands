@@ -380,7 +380,7 @@ hr {
 
 .content-text h4 code,
 .content-text p code {
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .content-code::-webkit-scrollbar{
@@ -473,6 +473,31 @@ hr {
     opacity: .7;
 }
 
+.btn-up {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: 5%;
+    bottom: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.btn-up i {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Mediaqueries */
 
@@ -507,6 +532,11 @@ hr {
 
     .content-code code {
         font-size: 1rem;
+    }
+
+    .content-text h4 code,
+    .content-text p code {
+        font-size: 1.15rem;
     }
 
 

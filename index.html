@@ -15,7 +15,7 @@
 </head>
 <body>
     
-    <header class="header container">
+    <header class="header container" id="up">
         <div class="header-logo">
             <a href="index.html">SOP - LINUX</a>
         </div>
@@ -475,6 +475,28 @@
                     </ul>
 
                     <a href="#crontab">Crontab</a>
+
+                    <br>
+                    <br>
+
+                    <a href="#virtual-disk">Discos virtuales</a>
+                    <ul>
+                        <li><a href="#virtual-disk-creation">Crear discos virtuales</a></li>
+                        <li><a href="#virtual-disk-partitions">Crear particiones</a></li>
+                        <li><a href="#virtual-disk-losetup">Asociar a un dispositivo de bucle</a></li>
+                    </ul>
+
+                    <a href="#partition-config">Configurar particiones</a>
+                    <ul>
+                        <li><a href="#ext3">Sistema EXT3</a></li>
+                        <li><a href="#ext4">Sistema EXT4</a></li>
+                        <li><a href="#swap">SWAP</a></li>
+                    </ul>
+
+                    <a href="#mount-partitions">Montar particiones</a>
+                    <br>
+                    <br>
+                    <a href="#umount-partitions">Desmontar particiones</a>
                 </div>
 
             </div>
@@ -623,17 +645,149 @@
     0 2,3 * * * ls -l / -> la tarea se ejecuta a las 2 am y a las 3 am (porque el horario es de 24hs).      </code>
                     </pre>
                 </div>
+
+                <div class="virtual-disk">
+                    <h3 id="virtual-disk" class="title">Discos virtuales</h3>
+                    <h4 id="virtual-disk-creation" class="title">Pasos para crear un disco virtual</h4>
+                    <p>Aclaración, hay distintas formas de hacerlo, esta es una de ellas...</p>
+                    <br>
+                    <p>Ejecutamos el comando "<code><b>dd</b></code>": </p>
+                    <pre class="content-code">
+                        <code>
+    dd  if=/dev/zero of=nombre-disco-virtual.img bs=1M count=300    </code>
+                    </pre>
+                    <p>Explicación</p>
+                    <ul>
+                        <li>
+                            <b>dd</b>: Es un comando utilizado para copiar y convertir datos. En este caso, lo estamos utilizando para crear un disco virtual.
+                        </li>
+                        <li>                       
+                            <b>if=/dev/zero</b>: El argumento if (input file) especifica el archivo de entrada. En este caso, estás utilizando /dev/zero, que es un dispositivo especial en Linux que produce una secuencia constante de caracteres nulos (todos los bits en cero). Esto se utiliza para llenar el disco virtual con ceros.
+                        </li>
+                        <li>
+                            <b>of=nombre-disco-virtual.img</b>: El argumento of (output file) especifica el archivo de salida. En este ejemplo, estás creando un archivo llamado nombre-disco-virtual.img que servirá como tu disco virtual.
+                        </li>
+                        <li>
+                            <b>bs=1M</b>: El argumento bs (block size) especifica el tamaño de bloque para la operación de entrada/salida. En este caso, estás utilizando un tamaño de bloque de 1 megabyte.
+                        </li>
+                        <li>
+                            <b>count=300</b>: Este argumento especifica cuántos bloques de tamaño bs se deben copiar desde la entrada al archivo de salida. Sería el espacio del disco virtual. En este ejemplo, estás creando un disco virtual de 300 megabytes, ya que estás copiando 300 bloques de 1 megabyte cada uno.
+                        </li>
+                    </ul>
+
+                    <h4 id="virtual-disk-partitions" class="title">Crear particiones en disco virtual.</h4>
+                    <p>Para crear particiones en el disco virtual creado, ejecutamos el comando <code><b>fdisk</b></code>.</p>
+                    <pre class="content-code">
+                        <code>
+    fdisk nombre-disco-virtual.img    </code>
+                    </pre>
+                    <p>Una vez dentro del disco virtual, podemos usar la opción de <b>m</b> para ver las distintas opciones posibles en su menú.</p>
+                    <br>
+                    <p>Una de las opciones es <b>n</b>, que es la que nos va a dejar crear particiones.</p>
+                    <br>
+                    <p>Si ingresamos <b>n</b> podemos ver que nos va a dejar crear particiones primarias o extendidas, y si creamos una extendida, la próxima va a ser lógica.</p>
+                    <br>
+                    <p>Si queremos crear <b>particiones primarias</b>, seguimos el orden del ingreso de datos. Ingresamos <b>p</b> y a partir de ahí nos va a pedir el orden de la partición (1-4), luego el punto de partida de espacio que va a empezar a ocupar esa partición (se pone el numero inicial del rango que muestra la terminal) y luego el espacio que va a ocupar esa partición (+numeroM, ej.: +15M).</p>
+                    <br>
+                    <p>Si queremos crear <b>particiones extendidas</b>, seguimos el mismo orden del ingreso de datos. Ingresamos <b>e</b> y a partir de ahí nos va a pedir la misma información. Un dato no menor es que la primera partición extendida debe ocupar un poco más que la suma de las particiones lógicas. Por ejemplo, si se quiere crear dos particiones extendidas, la primera de +20M y la segunda de +40M, su suma sería de +60M. La primera partición extendida se debe crear con un poco más del total de la suma de ambos tamaños, es decir, en vez de +20M, sería +65M para estar tranquilos. Esto es porque si creamos la primera partición extendida de +20M como necesitemos, no nos va a dejar crear la segunda partición lógica de +40M ya que no va a haber un espacio disponible debido a que +20M &#60; +40M.</p>
+                    <br>
+                    <br>
+                    <p>Con la opción <b>p</b> en el menú principal de <code><b>fdisk</b></code> podemos ver las particiones creadas.</p>
+                    <br>
+                    <p><u>No olvidar guardar los cambios</u> en el disco virtual con la opción <b>w</b> antes de salir del menu de <code><b>fdisk</b></code>.</p>
+                    <h4 id="virtual-disk-losetup" class="title">Asociar el disco virtual a un dispositivo de bucle</h4>
+                    <p>Una vez que has creado el disco virtual, necesitas asociarlo con un dispositivo de bucle para acceder a sus particiones. Ejecuta el siguiente comando:</p>
+                    <pre class="content-code">
+                        <code>
+    losetup -fP nombre-disco-virtual.img </code>
+                    </pre>
+                    <p>Nota: requiere ser super usuario.</p>
+                    <br>
+                    <p>Explicación:</p>
+                    <ul>
+                        <li>
+                            <b>losetup</b>: Configura y controla los bucles del kernel de Linux para asociar archivos con dispositivos de bucle.
+                        </li>
+                        <li>
+                            <b>-f</b>: Busca el primer bucle libre disponible.
+                        </li>
+                        <li>
+                            <b>-P</b>: Detecta y configura automáticamente las particiones dentro del bucle.
+                        </li>
+                        <li>
+                            <b>nombre-disco-virtual.img</b>: El nombre del archivo que contiene el disco virtual creado anteriormente.
+                        </li>
+                    </ul>
+                    <p>Después de ejecutar este comando, podrás acceder a las particiones del disco virtual a través del dispositivo de bucle asociado.</p>
+                </div>
+
+                <div class="partition-config">
+                    <h3 id="partition-config" class="title">Configuración de particiones.</h3>
+                    <p>Para saber el nombre del dispositivo de bucle asociado a la partición del disco virtual podemos ejecutar el comando <code><b>sudo fdisk -l</b></code>.</p>
+
+                    <h4 id="ext3" class="title">Crear un sistema de archivos ext3 en una partición.</h4>
+                    <pre class="content-code">
+                        <code>
+    mkfs.ext3 /dev/loopXpX   </code>
+                    </pre>
+                    <p>Nota: <b>/dev/loopXpX</b> es la partición o el dispositivo que formatearás con el sistema de archivos ext3.</p>
+
+                    <h4 id="ext4" class="title">Crear un sistema de archivos ext4 en una partición.</h4>
+                    <pre class="content-code">
+                        <code>
+    mkfs.ext4 /dev/loopXpX  </code>
+                    </pre>
+                    <p>Nota: <b>/dev/loopXpX</b> es la partición o el dispositivo que formatearás con el sistema de archivos ext4.</p>
+                  
+                    <h4 id="swap" class="title">Configurar una partición o archivo como área de intercambio (swap).</h4>
+                    <pre class="content-code">
+                        <code>
+    mkswap /dev/loopXpX     </code>
+                    </pre>
+                    <p>Después de ejecutar <code><b>mkswap</b></code>, generalmente también se ejecuta el comando <code><b>swapon</b></code> para activar el área de intercambio.</p>
+                    <pre class="content-code">
+                        <code>
+    swapon /dev/loopXpX     </code>
+                    </pre>
+                </div>
+                
+                <div class="mount-partitions">
+                    <h3 id="mount-partitions" class="title">Montar particiones</h3>
+                    <p>Para montar particiones se hace con el comando <code><b>mount</b></code>.</p>
+                    <pre class="content-code">
+                        <code>
+    mount /dev/loopXpX /ruta/a/donde/se/va/a/montar </code>
+                    </pre>
+                    <p>Donde <code>/dev/loopXpX</code> representa la partición que deseas montar, y <code>/ruta/a/donde/se/va/a/Montar</code> es la ubicación en la que se montará la partición.</p>
+                    <br>
+                    <p>Nota: para una partición swap, se explicó arriba que se hace con <code><b>swapon</b></code>.</p>
+
+                </div>
+                
+                <div class="umount-partitions">
+                    <h3 id="umount-partitions" class="title">Desmontar particiones</h3>
+                    <p>Para desmontar particiones, lo podemos hacer con <code><b>umount</b></code>.</p>
+                    <pre class="content-code">
+                        <code>
+    umount /dev/loopXpX     </code>
+                    </pre>
+                    <p>Donde <code>/dev/loopXpX</code> es la partición que deseas desmontar.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
     <hr class="container">
+    
+    <a href="#up" class="btn-up">
+        <i class="fa-solid fa-up-long fa-xl"></i>
+    </a>
 
     <section class="contact_me container" id="contact_me">
         <h2>¿Hay algún error? ¡Házmelo saber!</h2>
         <form action="https://formsubmit.co/facundoandrean22@gmail.com" method="POST" class="contact_me-form" target="_blank">
             <input type="text" name="subject" placeholder="¿Añadir o corregir comando?..." title="El asunto es requerido" required>
-            <!-- <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required> -->
             <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail: example@example.com" pattern="^[a-zA-Z0-9\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
             <textarea name="comments" cols="2" rows="5" placeholder="Escribe tu idea o corrección..." data-pattern="^.{1,255}$" title="Tu comentario no debe exceder los 255 caracteres" required></textarea>
             <input type="submit" value="Enviar">
