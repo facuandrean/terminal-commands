@@ -26,7 +26,6 @@
 
     <aside class="search container">
         <h1>Comandos de linux</h1>
-        <br>
         <h3>Buscar comandos...</h3>
         <input type="search" id="search-command" placeholder="Ingrese el comando a buscar">
     </aside>
@@ -39,8 +38,6 @@
 
         <h2>Programación en Bash</h2>
 
-        <br>
-
         <div class="content">
 
             <div class="content-nav none scroll-spy">
@@ -48,9 +45,6 @@
                 <div>
                     
                     <a href="#shellscript">Shellscript</a>
-
-                    <br>
-                    <br>
 
                     <a href="#variables">Variables</a>
                     <ul>
@@ -195,7 +189,6 @@
         echo "Eres mayor de edad."
     fi</code>
                     </pre>
-                    <br>
                     <h5>Se puede usar "<code><b>[ ]</b></code>": </h5>
                     <pre class="content-code">
                         <code>
@@ -205,7 +198,6 @@
     fi</code>
                     </pre>
                     <p>Notar que test y [ ] se usan para evaluar expresiones condicionales básicas. Son equivalentes pero la forma de los corchetes es más legible.</p>
-                    <br><br>
 
                     <h5>Se puede usar "<code><b>[[ ]]</b></code>":</h5>
                     <pre class="content-code">
@@ -446,11 +438,9 @@
 
     <hr class="container">
 
-    <section class="utilities container">
+    <section class="utilities container" >
 
         <h2>Tips y Utilidades</h2>
-
-        <br>
 
         <p>Hay algunos comandos que tienen cierta forma de uso o que brindan cierta información, la cual se tiene que explicar de manera aparte a la anterior.</p>
 
@@ -476,9 +466,6 @@
 
                     <a href="#crontab">Crontab</a>
 
-                    <br>
-                    <br>
-
                     <a href="#virtual-disk">Discos virtuales</a>
                     <ul>
                         <li><a href="#virtual-disk-creation">Crear discos virtuales</a></li>
@@ -494,8 +481,7 @@
                     </ul>
 
                     <a href="#mount-partitions">Montar particiones</a>
-                    <br>
-                    <br>
+
                     <a href="#umount-partitions">Desmontar particiones</a>
                 </div>
 
@@ -544,19 +530,15 @@
                     <h4 id="priorities" class="title">Prioridades de procesos.</h4>
                     <p> - 2 conceptos importantes: la prioridad <i><b>PRI</b></i>, es manejada por el <u>kernel</u>, y el valor de <i><b>NI</b></i> (nice), es manejado por el <u>usuario</u>.</p>
 
-                    <br>
 
                     <p> - <b>Fórmula de cálculo</b>: <u>PRI = 20 + NI  donde NI &#62;= -20 y NI &#60;= 19</u>.</p>
 
-                    <br>
                     
                     <p> - Mientras más chico el NI, más prioridad va a tener ese proceso.</p>
                     
-                    <br>
                     
                     <p> - Podemos ver estas columnas con el comando <code><b>ps -l</b></code> o <code><b>ps -el</b></code>.</p>
                     
-                    <br>
                     
                     <p> - Reiteramos: Al valor de PRI lo asigna el kernel al proceso (80 es el estándar), y al valor de NI lo modifica el usuario.</p>
 
@@ -605,13 +587,9 @@
                 <div class="crontab">
                     <h3 id="crontab" class="title">Forma de usar el comando Crontab.</h3>
                     <p>El comando crontab permite ejecutar tareas recurrentes.</p>
-                    <br>
                     <p>Para usarlo, debemos ejecutar en la línea de comandos: <code><b>crontab -e</b></code>.</p>
-                    <br>
                     <p>Si es la primera vez, podemos elegir un editor para hacer que se abra.</p>
-                    <br>
                     <p>Una vez abierto, nos permite guardar en un archivo los distintos comandos que queremos que se ejecuten cada cierto tiempo.</p>
-                    <br>
                     <p>Podemos leer su documentación, pero se resume a esto: </p>
                     <pre class="content-code">
                         <code>
@@ -624,9 +602,7 @@
                         <li><u>Cuarto parámetro</u>: significa el numero del mes del año en que se va a ejecutar. Los valores posibles son 1-12.</li>
                         <li><u>Quinto parámetro</u>: significa el dia de la semana en que se va a ejecutar. Los valores posibles son 0-7 (siendo 0 y 7 el día domingo).</li>
                     </ul>
-                    <br>
                     <p>Los valores de cada parámetro se pueden reemplazar por un aterisco <b>*</b>, el cual significa que se va a ejecutar cada valor de ese rango.</p>
-                    <br>
                     <h5>Ejemplo: </h5>
                     <pre class="content-code">
                         <code>
@@ -650,7 +626,6 @@
                     <h3 id="virtual-disk" class="title">Discos virtuales</h3>
                     <h4 id="virtual-disk-creation" class="title">Pasos para crear un disco virtual</h4>
                     <p>Aclaración, hay distintas formas de hacerlo, esta es una de ellas...</p>
-                    <br>
                     <p>Ejecutamos el comando "<code><b>dd</b></code>": </p>
                     <pre class="content-code">
                         <code>
@@ -682,18 +657,11 @@
     fdisk nombre-disco-virtual.img    </code>
                     </pre>
                     <p>Una vez dentro del disco virtual, podemos usar la opción de <b>m</b> para ver las distintas opciones posibles en su menú.</p>
-                    <br>
                     <p>Una de las opciones es <b>n</b>, que es la que nos va a dejar crear particiones.</p>
-                    <br>
                     <p>Si ingresamos <b>n</b> podemos ver que nos va a dejar crear particiones primarias o extendidas, y si creamos una extendida, la próxima va a ser lógica.</p>
-                    <br>
                     <p>Si queremos crear <b>particiones primarias</b>, seguimos el orden del ingreso de datos. Ingresamos <b>p</b> y a partir de ahí nos va a pedir el orden de la partición (1-4), luego el punto de partida de espacio que va a empezar a ocupar esa partición (se pone el numero inicial del rango que muestra la terminal) y luego el espacio que va a ocupar esa partición (+numeroM, ej.: +15M).</p>
-                    <br>
                     <p>Si queremos crear <b>particiones extendidas</b>, seguimos el mismo orden del ingreso de datos. Ingresamos <b>e</b> y a partir de ahí nos va a pedir la misma información. Un dato no menor es que la primera partición extendida debe ocupar un poco más que la suma de las particiones lógicas. Por ejemplo, si se quiere crear dos particiones extendidas, la primera de +20M y la segunda de +40M, su suma sería de +60M. La primera partición extendida se debe crear con un poco más del total de la suma de ambos tamaños, es decir, en vez de +20M, sería +65M para estar tranquilos. Esto es porque si creamos la primera partición extendida de +20M como necesitemos, no nos va a dejar crear la segunda partición lógica de +40M ya que no va a haber un espacio disponible debido a que +20M &#60; +40M.</p>
-                    <br>
-                    <br>
                     <p>Con la opción <b>p</b> en el menú principal de <code><b>fdisk</b></code> podemos ver las particiones creadas.</p>
-                    <br>
                     <p><u>No olvidar guardar los cambios</u> en el disco virtual con la opción <b>w</b> antes de salir del menu de <code><b>fdisk</b></code>.</p>
                     <h4 id="virtual-disk-losetup" class="title">Asociar el disco virtual a un dispositivo de bucle</h4>
                     <p>Una vez que has creado el disco virtual, necesitas asociarlo con un dispositivo de bucle para acceder a sus particiones. Ejecuta el siguiente comando:</p>
@@ -702,7 +670,6 @@
     losetup -fP nombre-disco-virtual.img </code>
                     </pre>
                     <p>Nota: requiere ser super usuario.</p>
-                    <br>
                     <p>Explicación:</p>
                     <ul>
                         <li>
@@ -759,7 +726,6 @@
     mount /dev/loopXpX /ruta/a/donde/se/va/a/montar </code>
                     </pre>
                     <p>Donde <code>/dev/loopXpX</code> representa la partición que deseas montar, y <code>/ruta/a/donde/se/va/a/Montar</code> es la ubicación en la que se montará la partición.</p>
-                    <br>
                     <p>Nota: para una partición swap, se explicó arriba que se hace con <code><b>swapon</b></code>.</p>
 
                 </div>
