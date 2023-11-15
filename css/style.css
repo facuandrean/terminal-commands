@@ -319,6 +319,18 @@ hr {
     margin: 0rem 0rem .1rem 1.2rem;
 }
 
+.content-nav::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content-nav::-webkit-scrollbar-thumb {
+    background: rgb(63, 63, 63);
+}
+
+.content-nav::-webkit-scrollbar-track {
+    background: black;
+}
+
 .content-text {
     width: 75%;
     height: auto;

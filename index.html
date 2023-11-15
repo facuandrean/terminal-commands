@@ -77,7 +77,7 @@
 
             </div>
 
-            <div class="content-text">
+            <div class="content-text" loading="lazy">
                 <div class="shellscript">
                     <h3 id="shellscript" class="title">¿Cómo crear un shellscript?</h3>
 
@@ -87,6 +87,7 @@
                         <li>Luego se escriben distintas sentencias, y se guarda el programa.</li>
                         <li>Para ejecutarlo, debemos darle permisos de ejecución, y una forma para hacerlo podría ser: <code><b>chmod +x ./nombre-archivo.sh</b></code></li>
                     </ol>
+
                 </div>
 
 
@@ -451,7 +452,7 @@
                 <div>
                     <a href="#process">Procesos</a>
                     <ul>
-                        <li><a href="#command-ps-e">Comando "ps -e"</a></li>
+                        <li><a href="#command-ps-e">Comando "ps -l"</a></li>
                         <li><a href="#process-status">Estados de un proceso</a></li>
                         <li><a href="#priorities">Prioridades</a></li>
                     </ul>
@@ -465,6 +466,13 @@
                     </ul>
 
                     <a href="#crontab">Crontab</a>
+
+                    <a href="#vmstat">Vmstat</a>
+
+                    <ul>
+                        <li><a href="#vmstat-form-1">Durante x tiempo cada x tiempo</a></li>
+                        <li><a href="#vmstat-form-2">x cantidad de veces cada x tiempo</a></li>
+                    </ul>
 
                     <a href="#virtual-disk">Discos virtuales</a>
                     <ul>
@@ -619,6 +627,26 @@
                     <pre class="content-code">
                         <code>
     0 2,3 * * * ls -l / -> la tarea se ejecuta a las 2 am y a las 3 am (porque el horario es de 24hs).      </code>
+                    </pre>
+                </div>
+
+                <div class="vmstat">
+                    <h3 id="vmstat" class="title">Formas de usar el comando Vmstat</h3>
+                    <p>El comando <code><b>vmstat</b></code> recibe 2 parámetros: el primero es el intervalo de segundos que se va a monitorear (el cada x segundos), y el segundo parámetro es la cantidad de veces a monitorear la memoria.</p>
+                    <h4 id="vmstat-form-1" class="title">Monitorear la memoria x cantidad de veces por x tiempo.</h4>
+                    <p>Si queremos monitorear la memoria x cantidad de veces por x tiempo, el primer parámetro es el intervalo en segundos que se va a monitorear y el segundo parámetro es la cantidad de veces a la cual se le debe de restar 1 porque apenas hacemos funcionar el comando vmstat ya se imprime una monitorización.</p>
+                    <p>Por ejemplo, si queremos monitorear la memoria 5 veces por un intervalo de 2 segundos cada vez, usaríamos el siguiente comando:</p>
+                    <pre class="content-code">
+                        <code>
+    vmstat 2 5  </code>
+                    </pre>
+
+                    <h4 id="vmstat-form-2" class="title">Monitorear la memoria durante x tiempo cada x tiempo.</h4>
+                    <p>Si éste es el caso, podemos hacerlo mediante como antes, pero en vez de restar 1 a la cantidad de veces, le debemos sumar 1.</p>
+                    <p>Supongamos que queremos monitorear la memoria durante 10 segundos, con un intervalo de 3 segundos entre cada muestra. En este caso, el comando sería:</p>
+                    <pre class="content-code">
+                        <code>
+    vmstat 3 4  </code>
                     </pre>
                 </div>
 
